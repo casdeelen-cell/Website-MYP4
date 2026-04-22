@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYP4 Science Revision</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --surface2: #f0ede8;
+  --border: #e3dfd8;
+  --text: #181714;
+  --text2: #6a6760;
+  --text3: #9c9893;
+  --mono: 'DM Mono', monospace;
+  --radius: 10px;
+  --radius-sm: 6px;
+
+  /* Unit 1 — warm terracotta */
+  --u1: #7a2e18;
+  --u1-mid: #b84d2a;
+  --u1-bg: #fdf2ee;
+  --u1-bg2: #f9e4db;
+  --u1-border: #e8b09a;
+  --u1-nav: #fdf2ee;
+
+  /* Unit 2 — deep navy */
+  --u2: #163660;
+  --u2-mid: #2558a0;
+  --u2-bg: #eaf1fb;
+  --u2-bg2: #d4e4f7;
+  --u2-border: #8ab4e0;
+  --u2-nav: #eaf1fb;
+
+  /* Unit 3 — forest green */
+  --u3: #1e4a28;
+  --u3-mid: #2e7a40;
+  --u3-bg: #eaf5ec;
+  --u3-bg2: #d2ecda;
+  --u3-border: #88cc98;
+  --u3-nav: #eaf5ec;
+
+  /* Unit 4 — deep purple */
+  --u4: #3a1a5e;
+  --u4-mid: #6230a8;
+  --u4-bg: #f2edfb;
+  --u4-bg2: #e2d5f5;
+  --u4-border: #b090e0;
+  --u4-nav: #f2edfb;
+
+  /* Unit 5 — dark amber/gold */
+  --u5: #4a3200;
+  --u5-mid: #8a5e00;
+  --u5-bg: #fdf7e6;
+  --u5-bg2: #f5e9c0;
+  --u5-border: #d4aa50;
+  --u5-nav: #fdf7e6;
+
+  /* Level colors */
+  --l12-c: #1a3d6e; --l12-bg: #e6f0fb; --l12-border: #8ab4e0;
+  --l34-c: #1e4a28; --l34-bg: #eaf5ec; --l34-border: #88cc98;
+  --l56-c: #5a2d00; --l56-bg: #fdf2e6; --l56-border: #e8a870;
+  --l78-c: #3a1a5e; --l78-bg: #f2edfb; --l78-border: #b090e0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0; height: 52px;
+}
+.nav-logo {
+  padding: 0 1.5rem; font-weight: 600; font-size: 14px;
+  color: var(--text); text-decoration: none; white-space: nowrap;
+  border-right: 1px solid var(--border); height: 100%;
+  display: flex; align-items: center; flex-shrink: 0;
+}
+.nav-units {
+  display: flex; list-style: none; height: 100%; overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-units::-webkit-scrollbar { display: none; }
+.nav-units li a {
+  display: flex; align-items: center; height: 100%;
+  padding: 0 1.1rem; font-size: 13px; font-weight: 500;
+  color: var(--text2); text-decoration: none; white-space: nowrap;
+  border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s;
+}
+.nav-units li a:hover { color: var(--text); }
+.nav-units li.u1 a.active, .nav-units li.u1 a:hover { color: var(--u1-mid); border-bottom-color: var(--u1-mid); }
+.nav-units li.u2 a.active, .nav-units li.u2 a:hover { color: var(--u2-mid); border-bottom-color: var(--u2-mid); }
+.nav-units li.u3 a.active, .nav-units li.u3 a:hover { color: var(--u3-mid); border-bottom-color: var(--u3-mid); }
+.nav-units li.u4 a.active, .nav-units li.u4 a:hover { color: var(--u4-mid); border-bottom-color: var(--u4-mid); }
+.nav-units li.u5 a.active, .nav-units li.u5 a:hover { color: var(--u5-mid); border-bottom-color: var(--u5-mid); }
+
+/* HERO */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 2rem 2rem;
+}
+.hero-inner { max-width: 860px; margin: 0 auto; }
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.6rem; }
+.hero h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+.hero p { font-size: 15px; color: var(--text2); max-width: 560px; margin-bottom: 1.2rem; }
+.level-legend { display: flex; flex-wrap: wrap; gap: 8px; }
+.ll { font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 99px; border: 1px solid; }
+.ll-12 { background: var(--l12-bg); color: var(--l12-c); border-color: var(--l12-border); }
+.ll-34 { background: var(--l34-bg); color: var(--l34-c); border-color: var(--l34-border); }
+.ll-56 { background: var(--l56-bg); color: var(--l56-c); border-color: var(--l56-border); }
+.ll-78 { background: var(--l78-bg); color: var(--l78-c); border-color: var(--l78-border); }
+
+/* MAIN LAYOUT */
+.main { max-width: 860px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+/* UNIT SECTION */
+.unit-section { margin-top: 3rem; scroll-margin-top: 62px; }
+
+.unit-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 1.4rem 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.75rem;
+}
+.u1-header { background: var(--u1-bg2); border: 1px solid var(--u1-border); }
+.u2-header { background: var(--u2-bg2); border: 1px solid var(--u2-border); }
+.u3-header { background: var(--u3-bg2); border: 1px solid var(--u3-border); }
+.u4-header { background: var(--u4-bg2); border: 1px solid var(--u4-border); }
+.u5-header { background: var(--u5-bg2); border: 1px solid var(--u5-border); }
+
+.unit-num {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 4px 10px;
+  border-radius: 99px; flex-shrink: 0;
+}
+.u1-num { background: var(--u1); color: #fff; }
+.u2-num { background: var(--u2); color: #fff; }
+.u3-num { background: var(--u3); color: #fff; }
+.u4-num { background: var(--u4); color: #fff; }
+.u5-num { background: var(--u5); color: #fff; }
+
+.unit-title { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.u1-header .unit-title { color: var(--u1); }
+.u2-header .unit-title { color: var(--u2); }
+.u3-header .unit-title { color: var(--u3); }
+.u4-header .unit-title { color: var(--u4); }
+.u5-header .unit-title { color: var(--u5); }
+
+/* SUBTOPIC */
+.subtopic { margin-bottom: 1.25rem; }
+
+.subtopic-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); cursor: pointer;
+  transition: background 0.12s;
+  gap: 10px;
+}
+.subtopic-header:hover { background: var(--surface2); }
+.subtopic-header.open { border-radius: var(--radius) var(--radius) 0 0; border-bottom: none; }
+
+.st-left { display: flex; align-items: center; gap: 10px; }
+.st-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.u1-dot { background: var(--u1-mid); }
+.u2-dot { background: var(--u2-mid); }
+.u3-dot { background: var(--u3-mid); }
+.u4-dot { background: var(--u4-mid); }
+.u5-dot { background: var(--u5-mid); }
+
+.st-name { font-size: 14px; font-weight: 500; color: var(--text); }
+.st-right { display: flex; align-items: center; gap: 10px; }
+.video-link {
+  font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 99px;
+  border: 1px solid; text-decoration: none; white-space: nowrap; transition: opacity 0.15s;
+}
+.video-link:hover { opacity: 0.75; }
+.u1-vl { background: var(--u1-bg); color: var(--u1); border-color: var(--u1-border); }
+.u2-vl { background: var(--u2-bg); color: var(--u2); border-color: var(--u2-border); }
+.u3-vl { background: var(--u3-bg); color: var(--u3); border-color: var(--u3-border); }
+.u4-vl { background: var(--u4-bg); color: var(--u4); border-color: var(--u4-border); }
+.u5-vl { background: var(--u5-bg); color: var(--u5); border-color: var(--u5-border); }
+
+.st-chevron { font-size: 11px; color: var(--text3); transition: transform 0.2s; flex-shrink: 0; }
+.subtopic-header.open .st-chevron { transform: rotate(90deg); }
+
+.subtopic-body {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 1.25rem 1.25rem 1rem;
+}
+.subtopic-body.show { display: block; }
+
+/* CONTENT INSIDE SUBTOPIC */
+.content-text { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 0.75rem; }
+.content-text strong { color: var(--text); font-weight: 500; }
+.content-text em { font-style: italic; color: var(--text3); }
+
+.content-h { font-size: 13px; font-weight: 600; color: var(--text); margin: 1rem 0 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.content-list { font-size: 14px; color: var(--text2); padding-left: 1.1rem; line-height: 1.8; margin-bottom: 0.75rem; }
+.content-list li { margin-bottom: 2px; }
+.content-list li strong { color: var(--text); font-weight: 500; }
+
+.formula-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.5rem 0 0.75rem; }
+.formula {
+  font-family: var(--mono); font-size: 13px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 6px 12px; display: inline-block;
+}
+
+.info-box {
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  font-size: 13px; color: var(--text2); margin: 0.75rem 0; line-height: 1.65;
+  border-left: 3px solid;
+}
+.u1-info { background: var(--u1-bg); border-color: var(--u1-mid); }
+.u2-info { background: var(--u2-bg); border-color: var(--u2-mid); }
+.u3-info { background: var(--u3-bg); border-color: var(--u3-mid); }
+.u4-info { background: var(--u4-bg); border-color: var(--u4-mid); }
+.u5-info { background: var(--u5-bg); border-color: var(--u5-mid); }
+.info-box strong { color: var(--text); font-weight: 500; }
+
+.table-wrap { overflow-x: auto; margin: 0.75rem 0; }
+.ct { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ct th { background: var(--surface2); font-weight: 500; color: var(--text); padding: 7px 12px; border: 1px solid var(--border); text-align: left; }
+.ct td { padding: 6px 12px; border: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.ct tr:nth-child(even) td { background: var(--surface2); }
+
+/* QUESTIONS SECTION */
+.qs-header {
+  font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--text3); margin: 1rem 0 0.5rem; padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.level-group { margin-bottom: 0.75rem; }
+.level-row { display: flex; align-items: center; gap: 8px; margin-bottom: 0.4rem; }
+.lvl-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; padding: 2px 9px; border-radius: 99px; border: 1px solid; flex-shrink: 0;
+}
+.lt-12 { background: var(--l12-bg); color: var(--l12-c); border-color: var(--l12-border); }
+.lt-34 { background: var(--l34-bg); color: var(--l34-c); border-color: var(--l34-border); }
+.lt-56 { background: var(--l56-bg); color: var(--l56-c); border-color: var(--l56-border); }
+.lt-78 { background: var(--l78-bg); color: var(--l78-c); border-color: var(--l78-border); }
+.lvl-desc { font-size: 12px; color: var(--text3); }
+
+.qcard {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); margin-bottom: 5px; overflow: hidden;
+}
+.qcard-top {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 0.75rem 1rem; cursor: pointer; transition: background 0.1s;
+}
+.qcard-top:hover { background: var(--border); }
+.q-num { font-size: 11px; font-family: var(--mono); color: var(--text3); padding-top: 2px; flex-shrink: 0; }
+.q-body { flex: 1; }
+.q-text { font-size: 13px; color: var(--text); line-height: 1.55; }
+.q-cmd-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-top: 3px; display: inline-block;
+}
+.cmd-12 { color: var(--l12-c); }
+.cmd-34 { color: var(--l34-c); }
+.cmd-56 { color: var(--l56-c); }
+.cmd-78 { color: var(--l78-c); }
+.q-chevron-sm { font-size: 10px; color: var(--text3); flex-shrink: 0; padding-top: 3px; transition: transform 0.15s; }
+.qcard.open .q-chevron-sm { transform: rotate(90deg); }
+
+.qcard-ans {
+  display: none; border-top: 1px solid var(--border);
+  padding: 0.7rem 1rem 0.8rem;
+}
+.qcard.open .qcard-ans { display: block; }
+.ans-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #2e7a40; margin-bottom: 5px; }
+.ans-txt { font-size: 13px; color: var(--text2); line-height: 1.65; }
+.ans-txt ul { padding-left: 1.1rem; }
+.ans-txt li { margin-bottom: 2px; }
+.ans-txt strong { color: var(--text); font-weight: 500; }
+
+/* MCQ */
+.mcq-opts { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.mcq-o {
+  font-size: 13px; padding: 5px 10px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); color: var(--text2);
+  cursor: pointer; background: var(--surface); transition: background 0.1s;
+}
+.mcq-o:hover { background: var(--border); }
+.mcq-o.correct { background: #d2ecda; border-color: #88cc98; color: #1e4a28; font-weight: 500; }
+.mcq-o.wrong { background: #fde8e8; border-color: #e8a0a0; color: #7b1111; text-decoration: line-through; }
+
+/* DIVIDER */
+.unit-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+/* FORMATIVE ASSESSMENTS */
+.formatives {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.formatives-title {
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--text3); margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.formatives-title::before {
+  content: ''; display: inline-block; width: 14px; height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239c9893' stroke-width='2'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14 2 14 8 20 8'/%3E%3Cline x1='16' y1='13' x2='8' y2='13'/%3E%3Cline x1='16' y1='17' x2='8' y2='17'/%3E%3Cpolyline points='10 9 9 9 8 9'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+.formative-cards { display: flex; flex-direction: column; gap: 8px; }
+.formative-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 14px;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--surface2); text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+.formative-card:hover { background: var(--border); }
+.fc-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.fc-icon {
+  width: 32px; height: 32px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 14px;
+}
+.fc-info { min-width: 0; }
+.fc-name { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fc-meta { font-size: 11px; color: var(--text3); margin-top: 1px; }
+.fc-dl {
+  font-size: 11px; font-weight: 500; padding: 4px 10px;
+  border-radius: 99px; border: 1px solid; white-space: nowrap; flex-shrink: 0;
+}
+.u1 .fc-icon, .u1-fc .fc-icon { background: var(--u1-bg2); }
+.u2 .fc-icon, .u2-fc .fc-icon { background: var(--u2-bg2); }
+.u3 .fc-icon, .u3-fc .fc-icon { background: var(--u3-bg2); }
+.u4 .fc-icon, .u4-fc .fc-icon { background: var(--u4-bg2); }
+.u5 .fc-icon, .u5-fc .fc-icon { background: var(--u5-bg2); }
+.u2-fc .fc-dl { background: var(--u2-bg); color: var(--u2); border-color: var(--u2-border); }
+.u3-fc .fc-dl { background: var(--u3-bg); color: var(--u3); border-color: var(--u3-border); }
+.u4-fc .fc-dl { background: var(--u4-bg); color: var(--u4); border-color: var(--u4-border); }
+.u5-fc .fc-dl { background: var(--u5-bg); color: var(--u5); border-color: var(--u5-border); }
+.multi-fc .fc-dl { background: var(--surface2); color: var(--text2); border-color: var(--border); }
+.multi-fc .fc-icon { background: var(--surface2); }
+
+/* VIDEO EMBED */
+.video-embed {
+  margin: 0 0 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+.video-embed iframe {
+  width: 100%; height: 100%; border: none; display: block;
+}
+
+/* SLIDE EMBED SLOT */
+.slide-slot {
+  border: 2px dashed var(--border); border-radius: var(--radius);
+  padding: 1.25rem; text-align: center; margin-bottom: 1.25rem;
+}
+.slide-slot p { font-size: 12px; color: var(--text3); }
+.slide-slot code { font-family: var(--mono); font-size: 11px; background: var(--surface2); padding: 1px 5px; border-radius: 3px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem; text-align: center;
+  font-size: 12px; color: var(--text3);
+}
+footer a { color: inherit; }
+
+@media(max-width:600px){
+  .main { padding: 0 1rem 4rem; }
+  .hero { padding: 1.75rem 1rem 1.5rem; }
+  .hero h1 { font-size: 22px; }
+  .nav-logo { padding: 0 1rem; }
+}
+/* ═══════════════════ GAME HUB ═══════════════════ */
+.game-hub-section {
+  max-width: 860px; margin: 3rem auto 0; padding: 0 2rem;
+}
+.gh-header {
+  background: linear-gradient(135deg, #181714 0%, #2d2a25 100%);
+  border-radius: var(--radius); padding: 1.5rem;
+  margin-bottom: 1rem; color: #fff;
+}
+.gh-title-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.75rem; }
+.gh-eyebrow { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+.gh-xp-bar-wrap { display: flex; align-items: center; gap: 10px; }
+.gh-rank-badge { font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+.gh-xp-info { font-size: 12px; color: rgba(255,255,255,0.7); white-space: nowrap; }
+.gh-xp-bar { width: 100px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 99px; overflow: hidden; }
+.gh-xp-fill { height: 100%; background: linear-gradient(90deg, #f5c842, #f0a020); border-radius: 99px; transition: width 0.5s ease; width: 0%; }
+.gh-streak-row { display: flex; align-items: center; gap: 12px; }
+.gh-streak { font-size: 13px; color: rgba(255,255,255,0.8); }
+.gh-daily-badge { font-size: 12px; color: #7edd8a; font-weight: 600; }
+
+.gh-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media(max-width:600px){ .gh-modes { grid-template-columns: repeat(2, 1fr); } }
+.gh-mode-btn {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem; text-align: left;
+  cursor: pointer; transition: background 0.12s, transform 0.1s, border-color 0.12s;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.gh-mode-btn:hover { background: var(--surface2); transform: translateY(-1px); border-color: #c8c4bc; }
+.gh-mode-icon { font-size: 22px; line-height: 1; }
+.gh-mode-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.gh-mode-desc { font-size: 11px; color: var(--text3); line-height: 1.4; }
+
+/* MODAL */
+.game-modal {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+}
+.gm-inner {
+  background: var(--surface); border-radius: 14px;
+  width: 100%; max-width: 640px; max-height: 90vh;
+  overflow-y: auto; position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.gm-close {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 99px; width: 30px; height: 30px; font-size: 13px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 10; color: var(--text2);
+}
+.gm-close:hover { background: var(--border); }
+
+/* MODAL CONTENT SHARED */
+.gm-head { padding: 1.5rem 1.5rem 0; }
+.gm-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.gm-sub { font-size: 13px; color: var(--text2); margin-bottom: 1rem; }
+.gm-body { padding: 0 1.5rem 1.5rem; }
+.gm-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 600; cursor: pointer; border: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.gm-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.gm-btn-primary { background: #181714; color: #fff; }
+.gm-btn-green { background: #2e7a40; color: #fff; }
+.gm-btn-red { background: #b84d2a; color: #fff; }
+.gm-btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.gm-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+
+/* SETUP SCREEN */
+.gm-filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+.gm-filter-btn {
+  padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 500;
+  cursor: pointer; border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text2); transition: all 0.12s;
+}
+.gm-filter-btn.active { color: #fff; border-color: transparent; }
+.gm-filter-btn.fu1.active { background: var(--u1-mid); }
+.gm-filter-btn.fu2.active { background: var(--u2-mid); }
+.gm-filter-btn.fu3.active { background: var(--u3-mid); }
+.gm-filter-btn.fu4.active { background: var(--u4-mid); }
+.gm-filter-btn.fu5.active { background: var(--u5-mid); }
+.gm-filter-btn.fl12.active { background: var(--l12-c); }
+.gm-filter-btn.fl34.active { background: var(--l34-c); }
+.gm-filter-btn.fl56.active { background: var(--l56-c); }
+.gm-filter-btn.fl78.active { background: var(--l78-c); }
+
+/* QUIZ / SPEED QUESTION */
+.gq-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 8px; }
+.gq-progress-wrap { flex: 1; min-width: 120px; }
+.gq-progress-bar { height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.gq-progress-fill { height: 100%; background: #2e7a40; border-radius: 99px; transition: width 0.3s; }
+.gq-counter { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.gq-timer {
+  font-size: 20px; font-weight: 700; font-family: var(--mono);
+  min-width: 52px; text-align: right;
+}
+.gq-timer.urgent { color: #b84d2a; animation: pulse 0.5s infinite alternate; }
+@keyframes pulse { from { opacity:1 } to { opacity:0.5 } }
+.gq-streak-badge { font-size: 12px; font-weight: 600; color: #b84d2a; background: #fdf2ee; border: 1px solid var(--u1-border); padding: 2px 8px; border-radius: 99px; }
+
+.gq-question {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-bottom: 1rem;
+}
+.gq-unit-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text3); margin-bottom: 6px; }
+.gq-level-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 99px; border: 1px solid; margin-right: 5px; }
+.gq-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+.gq-answer-reveal { display: none; }
+.gq-answer-reveal.show { display: block; }
+.gq-answer-box {
+  background: #eaf5ec; border: 1px solid #88cc98; border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem; margin-bottom: 0.75rem; font-size: 13px; color: #1e4a28; line-height: 1.6;
+}
+.gq-self-btns { display: flex; gap: 8px; }
+.gq-self-btn {
+  flex: 1; padding: 9px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; transition: opacity 0.15s;
+}
+.gq-self-btn:hover { opacity: 0.85; }
+.gq-self-correct { background: #2e7a40; color: #fff; }
+.gq-self-wrong { background: #b84d2a; color: #fff; }
+
+.gq-show-btn {
+  width: 100%; padding: 10px; background: #181714; color: #fff;
+  border: none; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600;
+  cursor: pointer; margin-bottom: 0.75rem; transition: opacity 0.15s;
+}
+.gq-show-btn:hover { opacity: 0.85; }
+
+/* RESULTS */
+.gm-results-score {
+  text-align: center; padding: 1.5rem 0;
+}
+.gm-score-big { font-size: 52px; font-weight: 800; line-height: 1; }
+.gm-score-label { font-size: 14px; color: var(--text2); margin-top: 4px; }
+.gm-score-rank { font-size: 28px; margin: 8px 0; }
+.gm-breakdown { margin-top: 1rem; }
+.gm-breakdown-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--text2); }
+.gm-breakdown-row span:last-child { font-weight: 600; color: var(--text); }
+.gm-weak-list { margin-top: 0.5rem; }
+.gm-weak-item { font-size: 12px; padding: 5px 8px; background: #fdf2ee; border-radius: var(--radius-sm); margin-bottom: 4px; color: var(--u1); border-left: 3px solid var(--u1-mid); }
+
+/* FLASHCARD */
+.fc-card-wrap { perspective: 1000px; margin: 1rem 0; cursor: pointer; }
+.fc-card {
+  position: relative; height: 200px; transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.fc-card.flipped { transform: rotateY(180deg); }
+.fc-face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: var(--radius); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 1.5rem; text-align: center;
+}
+.fc-front { background: var(--surface2); border: 1px solid var(--border); }
+.fc-back { background: #eaf5ec; border: 1px solid #88cc98; transform: rotateY(180deg); }
+.fc-face-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text3); margin-bottom: 10px; }
+.fc-face-text { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.5; }
+.fc-face-ans { font-size: 13px; color: #1e4a28; line-height: 1.6; }
+.fc-hint { text-align: center; font-size: 11px; color: var(--text3); margin-bottom: 0.5rem; }
+.fc-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
+.fc-nav-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 6px 14px; font-size: 13px; cursor: pointer; }
+.fc-nav-btn:hover { background: var(--border); }
+.fc-counter { font-size: 12px; color: var(--text3); font-family: var(--mono); }
+.fc-self-btns { display: flex; gap: 8px; margin-top: 0.75rem; }
+.fc-self-btn { flex: 1; padding: 8px; border: none; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; cursor: pointer; }
+.fc-known { background: #d2ecda; color: #1e4a28; }
+.fc-unknown { background: #f9e4db; color: #7a2e18; }
+
+/* PROGRESS TRACKER */
+.pt-unit { margin-bottom: 1.25rem; }
+.pt-unit-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
+.pt-unit-bar { height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
+.pt-unit-fill { height: 100%; border-radius: 99px; transition: width 0.4s; }
+.pt-topics { display: flex; flex-direction: column; gap: 4px; }
+.pt-topic { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: var(--radius-sm); background: var(--surface2); cursor: pointer; transition: background 0.1s; }
+.pt-topic:hover { background: var(--border); }
+.pt-check { width: 16px; height: 16px; border-radius: 4px; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; transition: all 0.15s; }
+.pt-topic.done .pt-check { background: #2e7a40; border-color: #2e7a40; color: #fff; }
+.pt-topic-name { font-size: 12px; color: var(--text2); }
+.pt-topic.done .pt-topic-name { color: var(--text3); text-decoration: line-through; }
+
+/* STAT CARDS */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1rem; }
+.stat-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; }
+.stat-val { font-size: 22px; font-weight: 700; }
+.stat-lbl { font-size: 11px; color: var(--text3); }
+.weak-unit-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.weak-unit-name { font-size: 12px; width: 60px; color: var(--text2); flex-shrink: 0; }
+.weak-bar-wrap { flex: 1; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.weak-bar-fill { height: 100%; border-radius: 99px; background: #b84d2a; }
+.weak-pct { font-size: 11px; color: var(--text3); font-family: var(--mono); width: 32px; text-align: right; }
+
+/* DAILY BADGE on page */
+.subtopic-done-badge {
+  font-size: 10px; font-weight: 600; color: #2e7a40;
+  background: #d2ecda; border: 1px solid #88cc98;
+  border-radius: 99px; padding: 2px 7px; margin-left: 6px;
+}
+
+/* XP TOAST */
+.xp-toast {
+  position: fixed; bottom: 20px; right: 20px; z-index: 600;
+  background: #181714; color: #f5c842; font-weight: 700; font-size: 15px;
+  padding: 10px 18px; border-radius: 99px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transform: translateY(60px); opacity: 0; transition: all 0.3s;
+  pointer-events: none;
+}
+.xp-toast.show { transform: translateY(0); opacity: 1; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">MYP4 Science</a>
+  <ul class="nav-units">
+    <li class="u1"><a href="#unit1">Unit 1 — Pseudoscience</a></li>
+    <li class="u2"><a href="#unit2">Unit 2 — Atomic Structure</a></li>
+    <li class="u3"><a href="#unit3">Unit 3 — Periodic Table</a></li>
+    <li class="u4"><a href="#unit4">Unit 4 — Bonding & Forces</a></li>
+    <li class="u5"><a href="#unit5">Unit 5 — Energy & Enthalpy</a></li>
+  </ul>
+</nav>
+
+<div style="background:var(--surface);border-bottom:1px solid var(--border);">
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">MYP4 Criterion A Revision</div>
+    <h1>Science Revision Hub</h1>
+    <p>All five units in one place. Read the concept notes for each subtopic, then test yourself with leveled questions. Use the video links once your teacher adds them.</p>
+    <div class="level-legend">
+      <span class="ll ll-12">1-2: State / Identify / Select</span>
+      <span class="ll ll-34">3-4: Define / Calculate / Describe</span>
+      <span class="ll ll-56">5-6: Compare / Explain / Draw</span>
+      <span class="ll ll-78">7-8: Evaluate / Justify / Deduce</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="main">
+
+<!-- ══════════════════════════════════════════════════ UNIT 1 -->
+<div class="unit-section" id="unit1">
+  <div class="unit-header u1-header">
+    <span class="unit-num u1-num">Unit 1</span>
+    <span class="unit-title">Scientific Method, Bias &amp; Scale</span>
+  </div>
+
+  <!-- SUBTOPIC: Pseudoscience vs Science -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u1-dot"></span><span class="st-name">Science vs Pseudoscience &amp; Types of Bias</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text"><strong>Science</strong> is a process, not just a collection of facts. A scientific claim must be testable, falsifiable, and reproducible. If someone else follows the same method and gets the same result, the claim is supported. If the claim cannot in principle be tested or shown to be wrong, it is not scientific.</p>
+      <p class="content-text"><strong>Pseudoscience</strong> looks like science on the surface but fails these tests. Common signs: relies on personal stories (anecdotes) rather than controlled data, cannot be proven wrong no matter what, uses scientific-sounding language without real evidence, or the evidence is cherry-picked to support a conclusion already held.</p>
+
+      <div class="content-h">Types of bias</div>
+      <ul class="content-list">
+        <li><strong>Confirmation bias:</strong> The researcher only notices or records evidence that supports their existing belief, and ignores anything that contradicts it.</li>
+        <li><strong>Sampling bias:</strong> The group of people or objects studied does not fairly represent the full population you want to draw conclusions about.</li>
+        <li><strong>Reporting bias:</strong> Studies with positive or dramatic results get published; studies that found nothing do not, giving a distorted picture of the evidence.</li>
+        <li><strong>Observer bias:</strong> The person measuring a result is influenced by what they expect to see, often unconsciously.</li>
+      </ul>
+
+      <div class="info-box u1-info"><strong>Key test for pseudoscience:</strong> Ask "what evidence would prove this wrong?" If there is no possible answer, it is not science.</div>
+
+      <div class="qs-header">Practice questions</div>
+
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">State / Identify</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">State two features that make a claim scientific rather than pseudoscientific.</div><div class="q-cmd-tag cmd-12">State</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Any two of: testable hypothesis / falsifiable / reproducible results / controlled variables / based on peer-reviewed evidence.</div></div>
+        </div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Identify which type of bias is shown: a researcher studying the benefits of a new drug only writes up the trials that showed improvement.</div><div class="q-cmd-tag cmd-12">Identify</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Reporting bias (and possibly confirmation bias). The researcher is selectively publishing only favourable results.</div></div>
+        </div>
+      </div>
+
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Evaluate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">A company claims their supplement "boosts immune function." They say this cannot be disproven because every person responds differently. Evaluate whether this is a scientific claim.</div><div class="q-cmd-tag cmd-78">Evaluate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">This is not a scientific claim. A scientific claim must be falsifiable — there must be some possible outcome that would prove it wrong. If the company says individual variation always explains away negative results, the claim is unfalsifiable. Without a controlled, reproducible test with measurable outcomes, this is pseudoscience.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Sampling -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u1-dot"></span><span class="st-name">Sampling — Why We Sample &amp; How to Do It Well</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text"><strong>Why we sample:</strong> It is almost never possible to study every individual in a population. Sampling lets us study a manageable group and use the results to make reasonable inferences about the whole population — as long as the sample is chosen well.</p>
+      <p class="content-text"><strong>A good sample</strong> must be large enough to reduce the effect of random variation, and it must be representative — the people or things chosen should reflect the full diversity of the population. A random sample (where every individual has an equal chance of being chosen) is the gold standard.</p>
+
+      <div class="content-h">Common sampling mistakes</div>
+      <ul class="content-list">
+        <li><strong>Sample too small:</strong> A few data points can be misleading due to chance.</li>
+        <li><strong>Not random:</strong> Asking only your friends, or only people who volunteer, introduces bias — certain groups will be over or under represented.</li>
+        <li><strong>Wrong population:</strong> Studying teenagers to make claims about all adults is not valid.</li>
+      </ul>
+      <div class="info-box u1-info"><strong>Remember:</strong> Even a large sample can be biased if it is not representative. 10,000 responses from one country cannot represent the global population.</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Outline</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Outline two reasons why a scientist might use sampling instead of studying the entire population.</div><div class="q-cmd-tag cmd-34">Outline</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Studying an entire population is often impractical (too large, too expensive, or impossible to access). Sampling allows reliable conclusions to be drawn in a manageable time and with fewer resources, as long as the sample is representative and large enough.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Evaluate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">A survey of 500 students at one school finds 72% prefer coffee. Evaluate whether this is sufficient to conclude that most people worldwide prefer coffee.</div><div class="q-cmd-tag cmd-78">Evaluate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">This is not sufficient. 500 students from one school is neither large enough nor representative of 8 billion people worldwide. The sample is limited to one school (likely one age group, one culture, one socioeconomic context), introducing severe sampling bias. No global conclusion can be drawn without a much larger, randomly selected, internationally representative sample.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Scale Factor -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u1-dot"></span><span class="st-name">Scale Factor</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">Scale factor describes the relationship between the size of a model and the size of the real object. It is written as a ratio, for example 1:100, which means 1 unit on the model equals 100 units in reality. The model is 100 times smaller than the real object.</p>
+      <div class="formula-row">
+        <span class="formula">Scale factor = model size / real size</span>
+        <span class="formula">Real size = model size / scale factor</span>
+        <span class="formula">Model size = real size x scale factor</span>
+      </div>
+      <div class="content-h">Direction matters</div>
+      <p class="content-text">A scale of 1:100 means the model is smaller. A scale of 100:1 means the model is larger than the real thing (used in microscopy — a microscope image might be 1000:1 to make tiny structures visible).</p>
+      <div class="info-box u1-info"><strong>Common mistake:</strong> Students sometimes flip the ratio. In 1:100, the model is 100x smaller. The real object is 100x bigger, not smaller.</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">A spacecraft model is built at scale 1:100. The real spacecraft is 30 m long. How long is the model?</div><div class="q-cmd-tag cmd-12">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Model = 30 m / 100 = <strong>0.3 m</strong></div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">A map has scale 1:50,000. A road on the map measures 4.6 cm. What is the real length of the road in km?</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">4.6 cm x 50,000 = 230,000 cm = 2,300 m = <strong>2.3 km</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /unit1 -->
+
+<hr class="unit-divider">
+
+<!-- ══════════════════════════════════════════════════ UNIT 2 -->
+<div class="unit-section" id="unit2">
+  <div class="unit-header u2-header">
+    <span class="unit-num u2-num">Unit 2</span>
+    <span class="unit-title">Atomic Structure &amp; Fundamental Forces</span>
+  </div>
+
+  <!-- SUBTOPIC: Scale & Scientific Notation -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u2-dot"></span><span class="st-name">Scale &amp; Scientific Notation</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/6_8r8DmXXkc" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">The universe operates across an enormous range of scales — from quarks (10<sup>-18</sup> m) to the observable universe (10<sup>26</sup> m). We use <strong>scientific notation</strong> to handle very large and very small numbers without writing endless zeros.</p>
+      <p class="content-text">Scientific notation writes a number as a value between 1 and 10 multiplied by a power of 10. For example: 6,400,000 = 6.4 x 10<sup>6</sup>, and 0.000035 = 3.5 x 10<sup>-5</sup>.</p>
+      <div class="formula-row">
+        <span class="formula">a x 10^n  where  1 &le; a &lt; 10</span>
+      </div>
+      <div class="content-h">Reading the exponent</div>
+      <ul class="content-list">
+        <li>Positive exponent (e.g. 10<sup>6</sup>): large number, move decimal right.</li>
+        <li>Negative exponent (e.g. 10<sup>-9</sup>): tiny number, move decimal left.</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Select</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Write 0.00000492 in scientific notation.</div><div class="q-cmd-tag cmd-12">Convert</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><strong>4.92 x 10<sup>-6</sup></strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Atoms & the Periodic Table -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u2-dot"></span><span class="st-name">Atoms &amp; the Periodic Table</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/euc1eY6mhks" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">An atom has a dense central <strong>nucleus</strong> containing protons (positive) and neutrons (no charge), surrounded by electrons (negative) arranged in shells. The number of protons defines which element it is.</p>
+      <div class="formula-row">
+        <span class="formula">Atomic number = number of protons</span>
+        <span class="formula">Mass number = protons + neutrons</span>
+        <span class="formula">Neutrons = mass number - atomic number</span>
+      </div>
+      <div class="content-h">Isotopes</div>
+      <p class="content-text"><strong>Isotopes</strong> are atoms of the same element with different numbers of neutrons. They have the same chemical behaviour (same electrons, same bonding) but different masses. The atomic mass on the periodic table is the weighted average of all naturally occurring isotopes — which is why it is often a decimal, not a whole number.</p>
+      <div class="content-h">Structure of the periodic table</div>
+      <ul class="content-list">
+        <li><strong>Period (row):</strong> Tells you how many electron shells the atom has.</li>
+        <li><strong>Group (column):</strong> Tells you how many valence (outer shell) electrons the atom has.</li>
+        <li><strong>Electron configuration:</strong> Shells fill from inside out: shell 1 holds max 2, shell 2 holds max 8, shell 3 holds max 8.</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">State</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Chlorine-35 has atomic number 17. State the number of protons, neutrons and electrons.</div><div class="q-cmd-tag cmd-12">State</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Protons: 17 / Neutrons: 35 - 17 = 18 / Electrons: 17 (equal to protons in a neutral atom).</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Calculate / Define</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Calculate the number of moles of copper in a 30 g bar. (Molar mass of Cu = 63.5 g/mol)</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Moles = 30 / 63.5 = <strong>0.47 mol</strong></div></div>
+        </div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">Define the term "electron shell".</div><div class="q-cmd-tag cmd-34">Define</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">An electron shell is a fixed energy level surrounding the nucleus in which electrons are found. Shells fill from inside out: shell 1 holds max 2, shell 2 holds max 8.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q4</span><div class="q-body"><div class="q-text">Explain why the atomic mass of chlorine on the periodic table is approximately 35.5, not a whole number.</div><div class="q-cmd-tag cmd-78">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Chlorine exists as two isotopes in nature: Cl-35 and Cl-37. Each has a whole-number mass, but the atomic mass shown is a weighted average based on their natural abundances (approximately 75% Cl-35, 25% Cl-37). The weighted average is 35.5, which is a decimal because the isotopes are not present in equal proportions.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Fundamental Particles & Forces -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u2-dot"></span><span class="st-name">Fundamental Particles &amp; the Four Forces</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/quftSJXur8I" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">Protons and neutrons are not fundamental — they are made of smaller particles called <strong>quarks</strong>. A proton contains 2 up quarks and 1 down quark. A neutron contains 1 up quark and 2 down quarks. Quarks are held together by the strong nuclear force, carried by particles called <strong>gluons</strong>.</p>
+      <div class="content-h">The four fundamental forces</div>
+      <div class="table-wrap">
+        <table class="ct">
+          <tr><th>Force</th><th>Carrier particle</th><th>Range</th><th>Relative strength</th></tr>
+          <tr><td>Gravitational</td><td>Graviton</td><td>Infinite</td><td>Weakest of all four</td></tr>
+          <tr><td>Electromagnetic</td><td>Photon</td><td>Infinite</td><td>Strong at atomic scale</td></tr>
+          <tr><td>Strong nuclear</td><td>Gluon</td><td>Very short (inside nucleus)</td><td>Strongest at very short range</td></tr>
+          <tr><td>Weak nuclear</td><td>W/Z bosons</td><td>Very short</td><td>Responsible for radioactive decay</td></tr>
+        </table>
+      </div>
+      <div class="info-box u2-info"><strong>Common mistake:</strong> Quarks are held together by the <em>strong nuclear force</em>, not gravity. Gravity is far too weak at subatomic scales. Gravity only becomes important for very massive objects like planets and stars.</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">State / List</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">State the quarks found in a proton and the force that holds them together.</div><div class="q-cmd-tag cmd-12">State</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">A proton contains <strong>2 up quarks and 1 down quark</strong>, held together by the <strong>strong nuclear force</strong> (carried by gluons).</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Compare</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Compare the gravitational force and the strong nuclear force in terms of strength and range.</div><div class="q-cmd-tag cmd-34">Compare</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">The strong nuclear force is by far the most powerful at very short range (inside the nucleus), but it only acts over extremely short distances. Gravity is the weakest of the four fundamental forces but has infinite range and acts on anything with mass — which is why it dominates at the scale of planets and galaxies.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">A spaceship (mass 1.75 x 10^5 kg) near Proxima Centauri (mass 2.428 x 10^29 kg) experiences a gravitational force of 1.2 x 10^8 N. The minimum safe distance is 50,000 km. Calculate the actual distance and determine whether the ship is safe. (G = 6.674 x 10^-11)</div><div class="q-cmd-tag cmd-78">Calculate + Justify</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">r = sqrt(G m1 m2 / F) = sqrt(6.674e-11 x 1.75e5 x 2.428e29 / 1.2e8) = sqrt(2.834e24 / 1.2e8) = sqrt(2.36e16) = approx. <strong>1.54 x 10^8 m = 154,000 km</strong>. The ship is at 154,000 km, well beyond the 50,000 km minimum. <strong>The ship is safe.</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Weight & Gravitational Force -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u2-dot"></span><span class="st-name">Weight &amp; Gravitational Force</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/nqSyb2AHgsw" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text"><strong>Mass</strong> is the amount of matter in an object. It is measured in kilograms and never changes regardless of where the object is. <strong>Weight</strong> is the gravitational force acting on that mass. It changes depending on the strength of gravity (e.g. your weight on the Moon is about 1/6 of your weight on Earth, but your mass is exactly the same).</p>
+      <div class="formula-row">
+        <span class="formula">W = mg    (Weight = mass x gravitational field strength)</span>
+        <span class="formula">F = G m1 m2 / r^2    (Newton's Law of Gravitation)</span>
+      </div>
+      <p class="content-text">In Newton's Law: G = 6.674 x 10<sup>-11</sup> N m<sup>2</sup> kg<sup>-2</sup>, m1 and m2 are the two masses in kg, r is the distance between their centres in metres.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Outline / Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Outline the difference between mass and weight.</div><div class="q-cmd-tag cmd-34">Outline</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Mass is the amount of matter in an object, measured in kg, and is constant everywhere. Weight is the gravitational force on that mass, measured in Newtons, and changes depending on the local gravitational field strength.</div></div>
+        </div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">At their closest point, Pluto (1.309 x 10^22 kg) and Neptune (1.024 x 10^26 kg) are 3.6 x 10^11 m apart. Calculate the gravitational force between them.</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">F = (6.674e-11 x 1.309e22 x 1.024e26) / (3.6e11)^2 = 8.94e37 / 1.296e23 = <strong>approx. 6.9 x 10^14 N</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATIVES UNIT 2 -->
+  <div class="formatives">
+    <div class="formatives-title">Formative Assessments</div>
+    <div class="formative-cards">
+      <a class="formative-card u2-fc" href="Formative_Test_M4U2__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Formative Test — Unit 2</div><div class="fc-meta">Quickfire + short answer · atomic structure, forces, weight</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card u2-fc" href="M4U2_Practice_test_2.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Practice Test 2 — Unit 2</div><div class="fc-meta">Multiple choice · forces, periodic table, atomic structure</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card u2-fc" href="MYP4_Unit2_Formative_Assessment_VersionB__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Formative Assessment Version B — Unit 2</div><div class="fc-meta">MCQ + new situations · ions, isotopes, fundamental forces</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card u2-fc" href="Unit_2_crit_A_training_exercises_2024__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Criterion A Training Exercises — Unit 2</div><div class="fc-meta">Weight, gravity calculations · fundamental particles · molar mass</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /unit2 -->
+
+<hr class="unit-divider">
+
+<!-- ══════════════════════════════════════════════════ UNIT 3 -->
+<div class="unit-section" id="unit3">
+  <div class="unit-header u3-header">
+    <span class="unit-num u3-num">Unit 3</span>
+    <span class="unit-title">Periodic Table, Ions &amp; Taxonomy</span>
+  </div>
+
+  <!-- SUBTOPIC: Trends -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u3-dot"></span><span class="st-name">Trends in the Periodic Table</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/LGDnd_4RxGs" allowfullscreen loading="lazy"></iframe></div>
+      <div class="table-wrap">
+        <table class="ct">
+          <tr><th>Property</th><th>Across a period (left to right)</th><th>Down a group</th></tr>
+          <tr><td><strong>Atomic radius</strong></td><td>Decreases (more protons pull electrons closer)</td><td>Increases (more shells)</td></tr>
+          <tr><td><strong>Electronegativity</strong></td><td>Increases</td><td>Decreases</td></tr>
+          <tr><td><strong>First ionization energy</strong></td><td>Generally increases</td><td>Decreases</td></tr>
+        </table>
+      </div>
+      <p class="content-text"><strong>Electronegativity (X)</strong> measures how strongly an atom pulls on electrons in a bond. Scale 0 to 4. Fluorine has the highest (3.98), Francium the lowest (0.7). A large difference in X between two atoms means a strong, possibly explosive reaction. Identical X means little to no reaction.</p>
+      <div class="formula-row">
+        <span class="formula">X difference > 1.7  →  Ionic bond</span>
+        <span class="formula">0.4 - 1.7  →  Polar covalent</span>
+        <span class="formula">&lt; 0.4  →  Nonpolar covalent</span>
+      </div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Select</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Going to the right within a period, the atomic radius...</div><div class="q-cmd-tag cmd-12">Select</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><div class="mcq-opts"><div class="mcq-o" onclick="mcq(this,false)">Increases</div><div class="mcq-o" onclick="mcq(this,true)">Decreases</div><div class="mcq-o" onclick="mcq(this,false)">Stays constant</div></div>More protons pull the electron cloud inward, shrinking the atom.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Evaluate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Your friend claims to have seen a strong reaction between lithium and calcium. Determine whether this is plausible and justify using electronegativity.</div><div class="q-cmd-tag cmd-78">Evaluate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">This is not plausible. Both lithium (X = 0.98) and calcium (X = 1.00) have very low electronegativity. The difference is approximately 0.02, far below the threshold for a strong reaction. Reactive collisions require one atom to strongly attract the electrons of the other. With nearly identical electronegativity, no significant electron transfer or sharing occurs and no strong reaction would be expected.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Reactivity & Special Groups -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u3-dot"></span><span class="st-name">Reactivity &amp; Special Groups (1, 2, 17, 18)</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/_K-eljxKk0c" allowfullscreen loading="lazy"></iframe></div>
+      <ul class="content-list">
+        <li><strong>Group 1 — Alkali metals:</strong> 1 valence electron. Very reactive — they want to lose that one electron. Reactivity increases going down the group (outer electron is further from nucleus, easier to remove).</li>
+        <li><strong>Group 2 — Alkaline earth metals:</strong> 2 valence electrons. Reactive but less so than Group 1. Also form positive ions (2+ charge).</li>
+        <li><strong>Group 17 — Halogens:</strong> 7 valence electrons, want to gain 1. Very reactive non-metals. Reactivity decreases going down the group (harder to attract an extra electron when the nucleus is more shielded).</li>
+        <li><strong>Group 18 — Noble gases:</strong> Full outer shell (8 electrons). Extremely stable and essentially unreactive. Do not form compounds under normal conditions.</li>
+      </ul>
+      <div class="info-box u3-info"><strong>Key pattern:</strong> Metallic reactivity increases going DOWN a group. Non-metal reactivity increases going UP a group. This is linked to how easily electrons can be lost or gained.</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Explain why the reactivity of non-metals increases going higher up in a group, while metallic reactivity decreases going higher up in a group.</div><div class="q-cmd-tag cmd-56">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Metals react by losing electrons. Going up a group, the atom gets smaller and the outer electrons are closer to the nucleus, held more tightly — they are harder to remove, so reactivity decreases. Non-metals react by gaining electrons. Going up a group, the atom is smaller and the nucleus is closer to where the new electron would go, attracting it more strongly — so reactivity increases.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Electron Shielding -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u3-dot"></span><span class="st-name">Electron Shielding &amp; Effective Nuclear Charge</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/SK6nFQFQfFE" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">The nucleus pulls on all electrons with its positive charge. But inner shell electrons partially block this pull for the outer (valence) electrons. This blocking effect is called <strong>shielding</strong>.</p>
+      <p class="content-text">The pull the valence electron actually feels is called the <strong>effective nuclear charge (Zeff)</strong>. A simple estimate: Zeff = number of protons - number of inner (shielding) electrons.</p>
+      <div class="formula-row"><span class="formula">Zeff = protons - inner electrons</span></div>
+      <p class="content-text">Example: Sodium (Na) has 11 protons and 10 inner electrons. Zeff = 11 - 10 = +1. The valence electron feels a pull of only +1, even though the nucleus has +11 protons.</p>
+      <p class="content-text">Going down a group: more shells = more shielding = lower Zeff on valence electrons = they are easier to remove or attract. This explains why electronegativity decreases down a group.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Calculate the effective nuclear charge on the valence electron of sodium (Na, atomic number 11).</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Na has electron configuration 2, 8, 1. Inner electrons = 10. Zeff = 11 - 10 = <strong>+1</strong></div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Describe</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Describe the change in properties of a fluorine atom if a proton were added to its nucleus.</div><div class="q-cmd-tag cmd-56">Describe</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Adding a proton to fluorine (Z=9) would create neon (Z=10). Neon has a full outer shell of 8 electrons, making it a noble gas. It becomes non-reactive, has a smaller atomic radius (more protons pulling same electrons), much higher first ionization energy, and essentially zero electronegativity in practical terms since it does not form bonds.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Ions -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u3-dot"></span><span class="st-name">Ions — Forming, Drawing &amp; Naming</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/QRGbgjAgckc" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">An <strong>ion</strong> is an atom (or group of atoms) that has gained or lost electrons and therefore carries an electric charge. Metals lose electrons to form <strong>cations</strong> (positive ions). Non-metals gain electrons to form <strong>anions</strong> (negative ions).</p>
+      <ul class="content-list">
+        <li>Anions end in "-ide": F<sup>-</sup> = Fluoride, O<sup>2-</sup> = Oxide, S<sup>2-</sup> = Sulphide.</li>
+        <li>Cations keep the element name + "ion": Mg<sup>2+</sup> = Magnesium ion.</li>
+        <li>Transition metals need a roman numeral to show charge: Fe<sup>3+</sup> = Iron(III), Fe<sup>2+</sup> = Iron(II).</li>
+      </ul>
+      <div class="content-h">Monovalent, bivalent, trivalent</div>
+      <ul class="content-list">
+        <li><strong>Monovalent:</strong> forms 1+ or 1- ions (Na, K, F, Cl)</li>
+        <li><strong>Bivalent:</strong> forms 2+ or 2- ions (Mg, Ca, O, S)</li>
+        <li><strong>Trivalent:</strong> forms 3+ or 3- ions (Al, N, P)</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Define / Outline</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Define the term "ion" and outline the difference between an anion and a cation, giving one named example of each.</div><div class="q-cmd-tag cmd-34">Define / Outline</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">An ion is an atom that has gained or lost electrons, giving it an electric charge. An anion is a negatively charged ion formed when an atom gains electrons (e.g. Cl<sup>-</sup>, chloride). A cation is a positively charged ion formed when an atom loses electrons (e.g. Na<sup>+</sup>, sodium ion).</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Deduce</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">State the charges of ions formed by aluminium and oxygen. Then deduce the chemical formula of aluminium oxide.</div><div class="q-cmd-tag cmd-56">Deduce</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Al forms Al<sup>3+</sup>. O forms O<sup>2-</sup>. To balance: 2 x Al<sup>3+</sup> gives +6 total; 3 x O<sup>2-</sup> gives -6 total. Formula: <strong>Al<sub>2</sub>O<sub>3</sub></strong></div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Justify</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">Justify why FeCl3 must include a roman numeral in its name, but NaCl does not.</div><div class="q-cmd-tag cmd-78">Justify</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Sodium (Group 1) can only ever form a Na<sup>+</sup> ion — its charge is always +1 and is fully predictable from its position. Iron is a transition metal that can form Fe<sup>2+</sup> or Fe<sup>3+</sup> depending on the compound. Without the roman numeral specifying Fe<sup>3+</sup>, it would be impossible to determine the correct formula. NaCl needs no numeral because there is no ambiguity.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Taxonomy -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u3-dot"></span><span class="st-name">Taxonomy — KPCOFGS, Dichotomous Keys &amp; Cladograms</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/O3jBwPRvdrI" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">Scientists classify all life using a hierarchical system from broadest to most specific: <strong>Kingdom, Phylum, Class, Order, Family, Genus, Species</strong> (KPCOFGS). All life is first divided into three Domains: Bacteria, Archaea, Eukaryota.</p>
+      <p class="content-text">The scientific name of a species is written in italics using the Genus and Species: <em>Panthera leo</em> (lion), <em>Homo sapiens</em> (human).</p>
+      <div class="content-h">Dichotomous key</div>
+      <p class="content-text">A dichotomous key classifies an unknown organism by asking a series of yes/no questions about observable features. At each step, you choose between two options until you reach a classification. Each branch point splits the organisms into exactly two groups.</p>
+      <div class="content-h">Cladograms (evolutionary trees)</div>
+      <p class="content-text">A cladogram shows evolutionary relationships based on shared characteristics. Branch points represent common ancestors. The closer two species branch together, the more recently they shared a common ancestor.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Describe</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Describe the purpose of a dichotomous key.</div><div class="q-cmd-tag cmd-34">Describe</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">A dichotomous key is a tool used to identify an unknown organism by working through a series of paired statements or yes/no questions about observable physical features. At each step, one of two options is chosen, leading progressively to a correct identification.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATIVES UNIT 3 -->
+  <div class="formatives">
+    <div class="formatives-title">Formative Assessments</div>
+    <div class="formative-cards">
+      <a class="formative-card u3-fc" href="MYP4_Unit_3_Periodicity_Revision_Summary.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Periodicity Revision Summary — Unit 3</div><div class="fc-meta">Worksheet · element symbols, group names, trends, ions</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card multi-fc" href="Practice_test_Unit_234__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Practice Test — Units 2, 3 & 4</div><div class="fc-meta">Periodic trends, electron shielding, bonding exercises</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card multi-fc" href="PracticeExamM4U34__2_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Practice Exam — Units 3 & 4</div><div class="fc-meta">Periodic trends, taxonomy, ionic & covalent bonding</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /unit3 -->
+
+<hr class="unit-divider">
+
+<!-- ══════════════════════════════════════════════════ UNIT 4 -->
+<div class="unit-section" id="unit4">
+  <div class="unit-header u4-header">
+    <span class="unit-num u4-num">Unit 4</span>
+    <span class="unit-title">Chemical Bonding, Properties &amp; Forces</span>
+  </div>
+
+  <!-- SUBTOPIC: Ionic Bonding -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Ionic Bonding — Cations, Anions &amp; Dot-and-Cross Diagrams</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">Ionic bonds form when a <strong>metal</strong> (electron donor) transfers electrons to a <strong>non-metal</strong> (electron acceptor). The metal becomes a positively charged cation; the non-metal becomes a negatively charged anion. The opposite charges attract, holding the ions together in a lattice structure.</p>
+      <div class="content-h">How to draw a dot-and-cross diagram for an ionic compound</div>
+      <ol class="content-list">
+        <li>Determine the electron configuration of the donor (metal) and acceptor (non-metal).</li>
+        <li>Draw the electron shell diagrams side by side. Use dots for one atom and crosses for the other so you can track which electrons came from where.</li>
+        <li>Draw a curly arrow from the donor to the acceptor showing the electron being transferred.</li>
+        <li>Draw the new electron configurations of both ions after transfer.</li>
+        <li>Place each ion in square brackets with its charge shown in the top right corner: [Na]<sup>+</sup> [Cl]<sup>-</sup></li>
+      </ol>
+      <div class="info-box u4-info"><strong>Key point:</strong> In ionic bonding, electrons are <em>transferred</em> (stolen), not shared. The curly arrow shows transfer, not sharing. Sharing belongs to covalent bonds.</div>
+      <div class="content-h">Naming ionic compounds</div>
+      <ul class="content-list">
+        <li><strong>Group 1 or 2 metal + non-metal:</strong> Metal name + non-metal with -ide. NaCl = Sodium chloride. MgO = Magnesium oxide.</li>
+        <li><strong>Transition metal + non-metal:</strong> Metal name + charge in roman numerals + non-metal with -ide. FeCl<sub>3</sub> = Iron(III) chloride.</li>
+        <li><strong>Polyatomic ions:</strong> Treat as a single unit. CO<sub>3</sub><sup>2-</sup> = Carbonate. SO<sub>4</sub><sup>2-</sup> = Sulfate. NO<sub>3</sub><sup>-</sup> = Nitrate.</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Identify</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">In a dot-and-cross diagram for an ionic compound, what does the curly arrow represent?</div><div class="q-cmd-tag cmd-12">Identify</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">The transfer of an electron from the metal donor to the non-metal acceptor.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Draw / Deduce</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Beryllium (Be) and Oxygen (O) form an ionic compound. Draw the electron shell diagrams for both atoms and indicate with arrows the movement of electrons. Then write the formula of the compound.</div><div class="q-cmd-tag cmd-56">Draw</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Be has configuration 2,2 — it donates both outer electrons to become Be<sup>2+</sup>. O has configuration 2,6 — it accepts 2 electrons to fill its outer shell and become O<sup>2-</sup>. Two curly arrows from Be to O. Both ions end up with the electron configuration of a noble gas (2,8). Formula: <strong>BeO</strong> (one Be<sup>2+</sup> balances one O<sup>2-</sup>).</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Covalent Bonding -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Covalent Bonding — Sharing, Drawing &amp; How Many Bonds</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">Covalent bonds form between <strong>two non-metal atoms</strong> that share pairs of electrons. Each atom contributes one electron to a shared pair. Atoms share until they all have a full outer shell (usually 8 electrons — the octet rule; hydrogen is satisfied with 2).</p>
+      <div class="content-h">How many bonds can each atom make?</div>
+      <ul class="content-list">
+        <li><strong>Group 14 (C):</strong> 4 bonds</li>
+        <li><strong>Group 15 (N, P):</strong> 3 bonds</li>
+        <li><strong>Group 16 (O, S):</strong> 2 bonds</li>
+        <li><strong>Group 17 (F, Cl, Br):</strong> 1 bond</li>
+        <li><strong>Hydrogen (H):</strong> 1 bond (always on the outside)</li>
+      </ul>
+      <div class="content-h">Types of covalent bonds</div>
+      <ul class="content-list">
+        <li><strong>Single bond:</strong> 1 shared pair of electrons (shown as one line: -)</li>
+        <li><strong>Double bond:</strong> 2 shared pairs (shown as two lines: =)</li>
+        <li><strong>Triple bond:</strong> 3 shared pairs (shown as three lines: ≡)</li>
+      </ul>
+      <div class="content-h">Structural formulae</div>
+      <p class="content-text">Instead of drawing full dot-and-cross diagrams, covalent bonds can be shown as lines between atoms. CH<sub>4</sub> (methane): H-C-H with two more H's above and below the C. Each line = one shared pair of electrons.</p>
+      <div class="content-h">Polar vs nonpolar covalent bonds</div>
+      <p class="content-text">If the two atoms sharing electrons have different electronegativities (difference 0.4-1.7), the electrons are not shared equally — the more electronegative atom pulls them closer, making the bond <strong>polar</strong>. Water is polar because oxygen (3.44) pulls much harder than hydrogen (2.20).</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Select</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Select the correct name for CCl4.</div><div class="q-cmd-tag cmd-12">Select</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><div class="mcq-opts"><div class="mcq-o" onclick="mcq(this,false)">Carbon dichloride</div><div class="mcq-o" onclick="mcq(this,true)">Carbon tetrachloride</div><div class="mcq-o" onclick="mcq(this,false)">Dichlorine carbide</div></div>Carbon comes first (4 bonds), chlorine uses prefix "tetra" for 4 atoms.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Draw / Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Draw the dot-and-cross diagram for methane (CH4) and explain why carbon makes 4 bonds.</div><div class="q-cmd-tag cmd-56">Draw</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Carbon is in Group 14 with 4 valence electrons. It needs 4 more to complete its outer shell of 8. Each of the 4 hydrogen atoms provides 1 electron, forming 4 single bonds. Each H also completes its outer shell (2 electrons). In the diagram: C in the centre, each H shares one electron pair with C.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Metallic Bonding -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Metallic Bonding — Electron Sea, Pure Metals &amp; Alloys</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">In metallic bonding, metal atoms release their valence electrons into a shared "sea" of delocalized electrons. What remains are positive metal cations arranged in a regular lattice, surrounded by and attracted to the freely moving electrons. This is not sharing (covalent) and not transferring (ionic) — the electrons belong to no specific atom.</p>
+      <div class="content-h">How to draw a metallic bond diagram</div>
+      <ul class="content-list">
+        <li>Draw a grid of positive cations (circles with + signs) in a regular repeating pattern.</li>
+        <li>Scatter small negative signs (e-) freely between and around all the cations.</li>
+        <li>Label the cations and label the free electrons as "delocalized electrons."</li>
+      </ul>
+      <div class="content-h">Pure metals vs alloys</div>
+      <ul class="content-list">
+        <li><strong>Pure metals:</strong> All atoms the same size — layers can slide past each other easily. Malleable and ductile. Examples: gold (Au), copper (Cu), silver (Ag).</li>
+        <li><strong>Alloys:</strong> Two or more different metals (or metal + non-metal) mixed. The different-sized atoms disrupt the regular lattice and prevent layers sliding — making the alloy harder and stronger. Examples: steel (Fe + C), bronze (Cu + Sn), brass (Cu + Zn), duralumin (Al + Cu).</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">State</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">State what is meant by "delocalized electrons" in a metallic bond.</div><div class="q-cmd-tag cmd-12">State</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Delocalized electrons are valence electrons that have been released from individual metal atoms and are free to move throughout the entire metallic structure, not belonging to any specific atom.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Explain why alloys are generally harder than pure metals, using ideas about lattice structure.</div><div class="q-cmd-tag cmd-56">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">In a pure metal, all atoms are the same size and arranged in a regular lattice. Layers can slide past each other easily when force is applied, making the metal malleable. In an alloy, different-sized atoms are introduced into the lattice. These disrupt the regular pattern and prevent layers from sliding smoothly, making the material harder and stronger.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Properties of All Three Bond Types -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Properties of Ionic, Covalent &amp; Metallic Substances</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">The physical properties of a substance come directly from its bonding structure. You need to be able to explain <em>why</em> each property exists, not just list it.</p>
+      <div class="table-wrap">
+        <table class="ct">
+          <tr><th>Property</th><th>Ionic (lattice)</th><th>Covalent (molecules)</th><th>Metallic (electron sea)</th></tr>
+          <tr><td>Melting/boiling point</td><td>High — many strong electrostatic attractions throughout the lattice</td><td>Variable — small molecules have low mp; giant covalent (e.g. diamond) extremely high</td><td>High — strong attraction between cations and electron sea throughout the structure</td></tr>
+          <tr><td>Electrical conductivity</td><td>Only when molten or dissolved (ions can then move freely)</td><td>No — no charged particles free to move (except giant networks like graphite)</td><td>Always — delocalized electrons move freely throughout</td></tr>
+          <tr><td>Hardness</td><td>Hard — ions locked in lattice</td><td>Variable</td><td>Hard but malleable — cations can slide without breaking the bond</td></tr>
+          <tr><td>Brittleness</td><td>Brittle — shifting the lattice aligns same charges, causing repulsion and shattering</td><td>Variable</td><td>Not brittle — malleable and ductile</td></tr>
+          <tr><td>Lustre</td><td>No lustre</td><td>Usually no lustre</td><td>Shiny lustre — free electrons reflect light</td></tr>
+          <tr><td>Solubility in water</td><td>Often dissolves — water molecules surround and separate the ions</td><td>Polar covalent: often dissolves. Nonpolar: does not</td><td>Does not dissolve easily in water</td></tr>
+        </table>
+      </div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Explain why ionic compounds are brittle when struck, using ideas about their lattice structure at the particle level.</div><div class="q-cmd-tag cmd-56">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">In an ionic lattice, positive and negative ions alternate in a regular pattern. When a force is applied, layers shift. This brings ions of the same charge next to each other. The repulsion between like charges is strong enough to split the crystal apart, causing the material to shatter rather than deform.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Evaluate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Evaluate to what extent ionic compounds are more suitable as building materials than covalent compounds.</div><div class="q-cmd-tag cmd-78">Evaluate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Ionic compounds have high melting points and are hard, which are useful properties for construction. However, they are brittle and shatter under sudden stress rather than bending, making them poor for load-bearing applications. They can also dissolve in water over time. Metals (metallic bonding) are generally superior for structural use because they are hard, malleable, and ductile. Many covalent compounds (e.g. polymers, timber) are also widely used in construction. So ionic compounds have limited use as structural materials in practice.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Balancing Equations -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Balancing Chemical Equations</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">A chemical equation must have the same number of each type of atom on both sides. You balance by adding <strong>coefficients</strong> (numbers in front of formulas) — never by changing the subscripts inside a formula.</p>
+      <div class="content-h">Step-by-step method</div>
+      <ol class="content-list">
+        <li>Count the number of each atom on each side of the equation.</li>
+        <li>Start with the element that appears in the fewest formulas (usually not H or O).</li>
+        <li>Add a coefficient to balance that element.</li>
+        <li>Recount all atoms after each change.</li>
+        <li>Balance H and O last.</li>
+        <li>Check that all atoms balance and all coefficients are the smallest whole numbers possible.</li>
+      </ol>
+      <div class="info-box u4-info"><strong>Diatomic elements:</strong> These elements exist as pairs of atoms when alone: H<sub>2</sub>, N<sub>2</sub>, F<sub>2</sub>, O<sub>2</sub>, I<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>. Remember: "Have No Fear Of Ice Cold Beer."</div>
+      <p class="content-text">Example: C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O. Balance C first (put 3 in front of CO<sub>2</sub>), then H (put 4 in front of H<sub>2</sub>O), then count O on the right (3x2 + 4x1 = 10 O atoms), so put 5 in front of O<sub>2</sub>. Balanced: C<sub>3</sub>H<sub>8</sub> + 5O<sub>2</sub> → 3CO<sub>2</sub> + 4H<sub>2</sub>O.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Balance</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Balance this equation: NaCl → Na + Cl2</div><div class="q-cmd-tag cmd-34">Balance</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><strong>2NaCl → 2Na + Cl<sub>2</sub></strong>. Cl<sub>2</sub> requires 2 Cl atoms, so 2 NaCl are needed, which also gives 2 Na atoms on each side.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Forces -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u4-dot"></span><span class="st-name">Forces — Balanced, Unbalanced &amp; Adding Vectors</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <p class="content-text">A <strong>force</strong> is a push or pull that has both a size (magnitude, in Newtons) and a direction. Forces are vectors.</p>
+      <div class="content-h">Balanced vs unbalanced forces</div>
+      <ul class="content-list">
+        <li><strong>Balanced forces:</strong> Net force = 0 N. The object stays still OR moves at constant speed. Forces are equal in size and opposite in direction.</li>
+        <li><strong>Unbalanced forces:</strong> Net force is not zero. The object accelerates (speeds up), decelerates (slows down), or changes direction.</li>
+      </ul>
+      <div class="formula-row">
+        <span class="formula">F_net = sum of all forces (direction matters)</span>
+      </div>
+      <div class="content-h">Adding and subtracting forces</div>
+      <ul class="content-list">
+        <li>Forces in the <strong>same direction: add</strong> them. 30 N right + 20 N right = 50 N right.</li>
+        <li>Forces in <strong>opposite directions: subtract</strong>. 30 N right + 20 N left = 10 N right (in the direction of the larger force).</li>
+      </ul>
+      <div class="content-h">Vectors in a coordinate system</div>
+      <p class="content-text">A force vector can be written as (x, y) where x is the horizontal component and y is the vertical component. To add vectors, add x values together and y values together. To find the magnitude: |V| = sqrt(x<sup>2</sup> + y<sup>2</sup>).</p>
+      <div class="content-h">Normal force</div>
+      <p class="content-text">Every surface pushes back against an object resting on it with a <strong>normal force (N)</strong>, always perpendicular to the surface. A book on a flat desk: weight (mg) acts downward, normal force (N) acts upward. If the book is not moving, N = mg and forces are balanced.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Select</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Friction always acts in which direction relative to an object's motion?</div><div class="q-cmd-tag cmd-12">Select</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><div class="mcq-opts"><div class="mcq-o" onclick="mcq(this,true)">Opposite to motion</div><div class="mcq-o" onclick="mcq(this,false)">Same as motion</div><div class="mcq-o" onclick="mcq(this,false)">Perpendicular to motion</div></div></div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Two people push a box. Person A pushes right with 80 N, Person B pushes left with 55 N. Calculate the net force and state whether the forces are balanced or unbalanced.</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Net force = 80 - 55 = <strong>25 N to the right</strong>. The forces are <strong>unbalanced</strong> — the box will accelerate to the right.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">A car travels at constant speed along a straight road. The engine provides a forward force. Explain what this tells you about the friction force acting on the car.</div><div class="q-cmd-tag cmd-56">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Constant speed means no acceleration, which means net force = 0 (balanced forces). The friction force (acting backward, opposing motion) must therefore be equal in size to the engine's forward force. The two forces cancel out exactly.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATIVES UNIT 4 -->
+  <div class="formatives">
+    <div class="formatives-title">Formative Assessments</div>
+    <div class="formative-cards">
+      <a class="formative-card u4-fc" href="SmallTestCovalentIonic_M4U4__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Small Test: Covalent & Ionic Bonding — Unit 4</div><div class="fc-meta">MCQ + short answer · Lewis structures, dot-and-cross, naming</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card multi-fc" href="Practice_test_Unit_234__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Practice Test — Units 2, 3 & 4</div><div class="fc-meta">Periodic trends, electron shielding, bonding exercises</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card multi-fc" href="PracticeExamM4U34__2_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Practice Exam — Units 3 & 4</div><div class="fc-meta">Periodic trends, taxonomy, ionic & covalent bonding</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /unit4 -->
+
+<hr class="unit-divider">
+
+<!-- ══════════════════════════════════════════════════ UNIT 5 -->
+<div class="unit-section" id="unit5">
+  <div class="unit-header u5-header">
+    <span class="unit-num u5-num">Unit 5</span>
+    <span class="unit-title">Energy, Heat, Enthalpy &amp; Organic Chemistry</span>
+  </div>
+
+  <!-- SUBTOPIC: Energy & Heat Curves -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Energy Recap, Heat Energy &amp; Heating Curves</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/5QOhxn7Ut0w" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">Energy is the ability to do work — to cause change. The Law of Conservation of Energy states that energy cannot be created or destroyed, only transformed. Energy comes in many forms: kinetic, potential, chemical, thermal, electrical.</p>
+      <div class="content-h">Temperature vs Heat</div>
+      <ul class="content-list">
+        <li><strong>Temperature (T):</strong> Average kinetic energy of particles. Measured in Kelvin (K) or degrees Celsius (°C). An absolute property of the substance.</li>
+        <li><strong>Heat (Q):</strong> Total thermal energy transferred between two objects at different temperatures. Measured in Joules (J). A relative quantity — it describes a transfer, not a state.</li>
+      </ul>
+      <div class="content-h">Heating curves</div>
+      <p class="content-text">A heating curve plots temperature against heat energy added. When a substance is melting or boiling, temperature stays constant even though heat is being added — this is <strong>latent heat</strong>. When the substance is a solid, liquid, or gas heating up, temperature rises — this is <strong>sensible heat</strong>.</p>
+      <ul class="content-list">
+        <li>Flat sections on a heating curve = phase change (latent heat). The energy breaks intermolecular bonds, not increase KE.</li>
+        <li>Sloped sections = temperature rising (sensible heat).</li>
+        <li>A steeper slope means the substance heats up faster (lower specific heat capacity).</li>
+      </ul>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Differentiate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Differentiate between temperature and heat.</div><div class="q-cmd-tag cmd-34">Differentiate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Temperature is the average kinetic energy of particles in a substance, measured in K or °C. Heat is the total energy transferred between objects at different temperatures, measured in Joules. Temperature is a property of a substance; heat is an energy transfer between substances.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Draw and label</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Draw and label a heating curve for water. Label all regions of sensible and latent heat, and mark where melting and boiling occur.</div><div class="q-cmd-tag cmd-78">Draw</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">The curve has 5 sections: (1) sloped rise — ice heating (sensible heat, solid), (2) flat section at 0°C — melting (latent heat of fusion), (3) sloped rise — liquid water heating (sensible heat, liquid), (4) flat section at 100°C — boiling (latent heat of vaporization), (5) sloped rise — steam heating (sensible heat, gas). Label axes: y-axis = temperature (°C), x-axis = heat energy added (J).</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Specific Heat Capacity & Latent Heat Calculations -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Specific Heat Capacity &amp; Latent Heat Calculations</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/D7He6jQYRZo" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text"><strong>Specific heat capacity (c)</strong> tells you how much energy is needed to raise 1 kg of a substance by 1 K. Water has a very high c (4182 J/kg/K), meaning it takes a lot of energy to heat. This is why the ocean moderates coastal climates.</p>
+      <div class="formula-row">
+        <span class="formula">Q = m x c x delta T</span>
+      </div>
+      <ul class="content-list">
+        <li>Q = heat energy (J)</li>
+        <li>m = mass (kg)</li>
+        <li>c = specific heat capacity (J/kg/K)</li>
+        <li>delta T = change in temperature (K or °C, same size)</li>
+      </ul>
+      <p class="content-text"><strong>Latent heat (L)</strong> is the energy absorbed or released during a phase change with no temperature change. Each material has a specific L value for each transition (melting, boiling).</p>
+      <div class="formula-row">
+        <span class="formula">Q = m x L</span>
+      </div>
+      <div class="info-box u5-info"><strong>Remember:</strong> Use Q = mcT for heating/cooling within a phase. Use Q = mL at a phase change (flat section of heating curve).</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Calculate the heat needed to raise 524 g of lead by 56 K. (c of lead = 128 J/kg/K)</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Q = 0.524 x 128 x 56 = <strong>3754 J</strong></div></div>
+        </div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">How much heat energy is needed to heat 50.0 g of water from 25.0°C to 75.0°C? (c = 4182 J/kg/K)</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Q = 0.050 x 4182 x 50 = <strong>10,455 J</strong></div></div>
+        </div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q3</span><div class="q-body"><div class="q-text">How much energy is absorbed when 500 g of gold melts? (Latent heat of fusion for gold = 63 kJ/kg)</div><div class="q-cmd-tag cmd-34">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Q = m x L = 0.500 x 63,000 = <strong>31,500 J = 31.5 kJ</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Endothermic vs Exothermic -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Endothermic vs Exothermic &amp; Enthalpy (delta H)</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/yr5FA4fb49U" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text"><strong>Enthalpy (H)</strong> is the total energy stored in the bonds of a molecule. We can only measure changes in enthalpy (delta H), not H itself. Substances with lower enthalpy are more stable.</p>
+      <div class="content-h">Exothermic reactions (delta H is negative)</div>
+      <ul class="content-list">
+        <li>Energy is released to the surroundings as heat.</li>
+        <li>Products have lower enthalpy than reactants.</li>
+        <li>The energy released forming new bonds is greater than the energy needed to break old bonds.</li>
+        <li>Examples: combustion, respiration, many oxidation reactions.</li>
+      </ul>
+      <div class="content-h">Endothermic reactions (delta H is positive)</div>
+      <ul class="content-list">
+        <li>Energy is absorbed from the surroundings.</li>
+        <li>Products have higher enthalpy than reactants.</li>
+        <li>More energy is needed to break old bonds than is released forming new ones.</li>
+        <li>Examples: photosynthesis, thermal decomposition, dissolving some salts.</li>
+      </ul>
+      <div class="info-box u5-info"><strong>Both types require activation energy</strong> first — you always need to put in some energy to break the initial bonds before a reaction can proceed, whether the overall reaction is exo or endothermic.</div>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Compare</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Compare and contrast endothermic and exothermic reactions in terms of enthalpy change and energy flow.</div><div class="q-cmd-tag cmd-56">Compare</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Both types of reaction require activation energy to get started and involve breaking and forming chemical bonds. In an exothermic reaction, more energy is released forming new bonds than is needed to break old ones — the products have lower enthalpy than reactants and delta H is negative. In an endothermic reaction, more energy is absorbed breaking old bonds than is released forming new ones — products have higher enthalpy than reactants and delta H is positive.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Bond Energies & Delta H -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Calculating Delta H from Bond Energies</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/oOCDyrVa640" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">Every bond has a bond energy — the energy needed to break it (or released when it forms). You can calculate the overall enthalpy change of a reaction if you know the bond energies of all bonds broken and formed.</p>
+      <div class="formula-row">
+        <span class="formula">delta H = energy in (bonds broken) - energy out (bonds formed)</span>
+      </div>
+      <ul class="content-list">
+        <li>Breaking bonds always absorbs energy (endothermic step).</li>
+        <li>Forming bonds always releases energy (exothermic step).</li>
+        <li>If delta H is negative: more energy released than absorbed — exothermic overall.</li>
+        <li>If delta H is positive: more energy absorbed than released — endothermic overall.</li>
+      </ul>
+      <p class="content-text">Worked example: H<sub>2</sub> + Br<sub>2</sub> → 2HBr. Bond energies: H-H = 432 kJ/mol, Br-Br = 193 kJ/mol, H-Br = 363 kJ/mol. Energy in = 432 + 193 = 625 kJ. Energy out = 2 x 363 = 726 kJ. Delta H = 625 - 726 = <strong>-101 kJ/mol</strong> (exothermic).</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Calculate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Using the worked example method, calculate delta H for the reaction N2 + 3H2 → 2NH3. Bond energies: N-N triple bond = 945 kJ/mol, H-H = 436 kJ/mol, N-H = 391 kJ/mol.</div><div class="q-cmd-tag cmd-56">Calculate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Bonds broken: 1 x N≡N (945) + 3 x H-H (3 x 436 = 1308) = 2253 kJ. Bonds formed: 2 x NH3 = 2 x (3 x N-H) = 6 x 391 = 2346 kJ. Delta H = 2253 - 2346 = <strong>-93 kJ/mol</strong> (exothermic).</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Collision Theory & Catalysts -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Collision Theory, Rate of Reaction &amp; Catalysts</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/Y0Nuuw2g9hQ" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">For a chemical reaction to happen, particles must collide with enough energy to overcome the <strong>activation energy</strong> barrier. Not every collision leads to a reaction — only those where the energy at the moment of collision is at or above the activation energy. These are called <strong>effective collisions</strong>.</p>
+      <div class="content-h">Factors that increase reaction rate</div>
+      <ul class="content-list">
+        <li><strong>Temperature:</strong> Particles move faster, collide more often, and more collisions have enough energy. Most important factor.</li>
+        <li><strong>Concentration (solutions):</strong> More particles in the same space means more frequent collisions.</li>
+        <li><strong>Pressure (gases):</strong> Same effect as concentration — squeezing the gas increases collision frequency.</li>
+        <li><strong>Surface area (solids):</strong> Crushing a solid exposes more surface for collisions — rate increases.</li>
+        <li><strong>Catalyst:</strong> Provides an alternative pathway with a lower activation energy. More collisions now have enough energy, so rate increases.</li>
+      </ul>
+      <div class="content-h">Catalysts in detail</div>
+      <p class="content-text">A catalyst lowers the activation energy but is not consumed in the reaction — it is regenerated and can be used again. Catalysts do not change the enthalpy of reactants or products (delta H stays the same), only the route to get there. Enzymes are biological catalysts with a lock-and-key mechanism for specific substrates.</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-56">5-6</span><span class="lvl-desc">Explain</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Explain how increasing temperature increases the rate of reaction, using ideas from collision theory.</div><div class="q-cmd-tag cmd-56">Explain</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">Increasing temperature gives particles more kinetic energy, so they move faster. This means: (1) more collisions per second because particles cover more ground, and (2) a greater proportion of those collisions have energy above the activation energy threshold. Both effects increase the frequency of effective collisions and therefore the rate of reaction.</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-78">7-8</span><span class="lvl-desc">Evaluate</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Your friend says: "Even in the dark, plants can still produce glucose through photosynthesis." Evaluate to what extent this statement is correct.</div><div class="q-cmd-tag cmd-78">Evaluate</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">The statement is mostly incorrect. The light-dependent reactions of photosynthesis require light to split water and produce ATP and NADPH. Without light, this stage stops and the ATP supply runs out almost immediately. The Calvin cycle (light-independent) can continue briefly using stored ATP, but cannot be sustained. Sustained glucose production through photosynthesis is not possible in the dark.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOPIC: Organic Chemistry -->
+  <div class="subtopic">
+    <div class="subtopic-header" onclick="toggleST(this)">
+      <div class="st-left"><span class="st-dot u5-dot"></span><span class="st-name">Organic Compounds, Hydrocarbons &amp; Combustion</span></div>
+      <div class="st-right">
+        <span class="st-chevron">&#9654;</span>
+      </div>
+    </div>
+    <div class="subtopic-body">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/1SxU5miHFGY" allowfullscreen loading="lazy"></iframe></div>
+      <p class="content-text">An <strong>organic compound</strong> is any molecule containing both carbon and hydrogen atoms. Organic compounds form the basis of all living things and fossil fuels. They have covalent bonds and can be very large and diverse. Elements present are mostly C, H, O, N, P, S, and sometimes halogens.</p>
+      <div class="content-h">Hydrocarbons</div>
+      <p class="content-text">Hydrocarbons contain only carbon and hydrogen. They come in three homologous series based on bond type:</p>
+      <div class="table-wrap">
+        <table class="ct">
+          <tr><th>Series</th><th>Bonds</th><th>Saturated?</th><th>Example</th><th>General formula</th></tr>
+          <tr><td>Alkane</td><td>Single bonds only</td><td>Saturated</td><td>Methane (CH4), Propane (C3H8)</td><td>CnH(2n+2)</td></tr>
+          <tr><td>Alkene</td><td>Contains a double bond</td><td>Unsaturated</td><td>Ethene (C2H4), Propene (C3H6)</td><td>CnH(2n)</td></tr>
+          <tr><td>Alkyne</td><td>Contains a triple bond</td><td>Unsaturated</td><td>Ethyne (C2H2)</td><td>CnH(2n-2)</td></tr>
+        </table>
+      </div>
+      <div class="content-h">Combustion of alkanes</div>
+      <p class="content-text">Combustion is the reaction of a hydrocarbon with oxygen to produce carbon dioxide and water. Combustion is always exothermic — it releases energy as heat and light. This is why fossil fuels are used as energy sources.</p>
+      <div class="formula-row">
+        <span class="formula">Complete combustion: alkane + O2 → CO2 + H2O</span>
+      </div>
+      <p class="content-text">Example: CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O</p>
+
+      <div class="qs-header">Practice questions</div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-12">1-2</span><span class="lvl-desc">Identify</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q1</span><div class="q-body"><div class="q-text">Identify whether each molecule is an alkane, alkene, or alkyne: C4H10, C3H6, C2H2.</div><div class="q-cmd-tag cmd-12">Identify</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt">C4H10: 2(4)+2=10 — <strong>alkane</strong> (butane). C3H6: 2(3)=6 — <strong>alkene</strong> (propene). C2H2: 2(2)-2=2 — <strong>alkyne</strong> (ethyne).</div></div>
+        </div>
+      </div>
+      <div class="level-group">
+        <div class="level-row"><span class="lvl-tag lt-34">3-4</span><span class="lvl-desc">Balance</span></div>
+        <div class="qcard" onclick="toggleQ(this)">
+          <div class="qcard-top"><span class="q-num">Q2</span><div class="q-body"><div class="q-text">Write and balance the complete combustion equation for propane (C3H8).</div><div class="q-cmd-tag cmd-34">Balance</div></div><span class="q-chevron-sm">&#9654;</span></div>
+          <div class="qcard-ans"><div class="ans-lbl">Answer</div><div class="ans-txt"><strong>C3H8 + 5O2 → 3CO2 + 4H2O</strong>. Balance C first (3), then H (8 H → 4 H2O), then count O on right: 6+4=10 O → 5 O2 on left.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATIVES UNIT 5 + ALL UNITS -->
+  <div class="formatives">
+    <div class="formatives-title">Formative Assessments</div>
+    <div class="formative-cards">
+      <a class="formative-card multi-fc" href="Practice_M4U1-5__1_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Full Practice Exam — Units 1–5</div><div class="fc-meta">90 min · all topics · scale, forces, bonding, enthalpy, organic</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+      <a class="formative-card multi-fc" href="Student_Revision_Questions__Criterion_A_-_MYP4_Year_Test__1___2_.docx" download>
+        <div class="fc-left"><div class="fc-icon">📝</div><div class="fc-info"><div class="fc-name">Year Test Revision Questions — All Units</div><div class="fc-meta">Levelled 1–8 · forces, bonding, scale, enthalpy, organic</div></div></div>
+        <span class="fc-dl">Download</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /unit5 -->
+
+</div><!-- /main -->
+
+<!-- XP TOAST -->
+<div id="xp-toast" class="xp-toast"></div>
+
+<!-- ═══════════════════════════════════════ GAME HUB ═══════════════════════════════════════ -->
+<div id="game-hub" class="game-hub-section">
+  <div class="gh-header">
+    <div class="gh-title-row">
+      <span class="gh-eyebrow">Study Games</span>
+      <div class="gh-xp-bar-wrap">
+        <div class="gh-rank-badge" id="gh-rank">🔬 Student</div>
+        <div class="gh-xp-info"><span id="gh-xp-val">0</span> XP</div>
+        <div class="gh-xp-bar"><div class="gh-xp-fill" id="gh-xp-fill"></div></div>
+      </div>
+    </div>
+    <div class="gh-streak-row">
+      <span class="gh-streak" id="gh-streak">🔥 0 streak</span>
+      <span class="gh-daily-badge" id="gh-daily-done" style="display:none">✅ Daily done!</span>
+    </div>
+  </div>
+
+  <!-- MODE TILES -->
+  <div class="gh-modes">
+    <button class="gh-mode-btn" onclick="openMode('quiz')">
+      <span class="gh-mode-icon">⚡</span>
+      <span class="gh-mode-name">Timed Quiz</span>
+      <span class="gh-mode-desc">Random questions, scored & timed</span>
+    </button>
+    <button class="gh-mode-btn" onclick="openMode('flashcard')">
+      <span class="gh-mode-icon">🃏</span>
+      <span class="gh-mode-name">Flashcards</span>
+      <span class="gh-mode-desc">Flip to reveal, mark known/unknown</span>
+    </button>
+    <button class="gh-mode-btn" onclick="openMode('speed')">
+      <span class="gh-mode-icon">⏱️</span>
+      <span class="gh-mode-name">Speed Round</span>
+      <span class="gh-mode-desc">60 seconds, max questions</span>
+    </button>
+    <button class="gh-mode-btn" onclick="openMode('daily')">
+      <span class="gh-mode-icon">📅</span>
+      <span class="gh-mode-name">Daily Challenge</span>
+      <span class="gh-mode-desc">5 questions · one shot per day</span>
+    </button>
+    <button class="gh-mode-btn" onclick="openMode('weak')">
+      <span class="gh-mode-icon">🎯</span>
+      <span class="gh-mode-name">Weak Spots</span>
+      <span class="gh-mode-desc">Practice questions you got wrong</span>
+    </button>
+    <button class="gh-mode-btn" onclick="openMode('progress')">
+      <span class="gh-mode-icon">📊</span>
+      <span class="gh-mode-name">Progress</span>
+      <span class="gh-mode-desc">Your stats, history & weak areas</span>
+    </button>
+  </div>
+</div>
+
+<!-- MODAL OVERLAY -->
+<div id="game-modal" class="game-modal" style="display:none">
+  <div class="gm-inner">
+    <button class="gm-close" onclick="closeModal()">✕</button>
+    <div id="gm-content"></div>
+  </div>
+</div>
+
+<!-- PROGRESS SUBTOPIC CHECKBOXES injected by JS -->
+
+
+
+
+<footer>
+  MYP4 Science Revision &nbsp;|&nbsp; <a href="https://www.youtube.com/@ExtraScience-g6k" target="_blank">ExtraScience on YouTube</a>
+</footer>
+
+<script>
+function toggleST(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('show');
+}
+
+function toggleQ(card) {
+  card.classList.toggle('open');
+}
+
+function mcq(el, correct) {
+  if (el.classList.contains('correct') || el.classList.contains('wrong')) return;
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    // Find and highlight the correct sibling
+    const opts = el.parentElement.querySelectorAll('.mcq-o');
+    opts.forEach(o => {
+      const fn = o.getAttribute('onclick');
+      if (fn && fn.includes('true')) o.classList.add('correct');
+    });
+  }
+  // Disable all options in this group
+  el.parentElement.querySelectorAll('.mcq-o').forEach(o => o.style.pointerEvents = 'none');
+  event.stopPropagation();
+}
+
+// Highlight active nav link on scroll
+const sections = ['unit1','unit2','unit3','unit4','unit5'];
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 80) current = id;
+  });
+  document.querySelectorAll('.nav-units li a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+// ═══════════════════════════════════════════════════════════
+// ExtraScience Gamification Engine
+// ═══════════════════════════════════════════════════════════
+
+// ── Storage helpers ──────────────────────────────────────
+const LS = {
+  get: k => { try { return JSON.parse(localStorage.getItem('es_'+k)); } catch(e) { return null; } },
+  set: (k,v) => { try { localStorage.setItem('es_'+k, JSON.stringify(v)); } catch(e) {} }
+};
+
+// ── State ────────────────────────────────────────────────
+let gs = LS.get('state') || {
+  xp: 0, streak: 0, wrongIds: {}, history: [], dailyDate: '', dailyDone: false,
+  progress: {}, speedBest: 0
+};
+const saveGS = () => LS.set('state', gs);
+
+// ── XP & Ranks ───────────────────────────────────────────
+const RANKS = [
+  [0,    '🔬 Student'],
+  [100,  '⚗️  Researcher'],
+  [300,  '🧪 Lab Tech'],
+  [600,  '📡 Analyst'],
+  [1000, '🏆 Scientist'],
+  [1500, '🌟 Expert'],
+  [2500, '🎓 Nobel Candidate'],
+];
+function getRank(xp) {
+  let r = RANKS[0][1];
+  for (const [min, name] of RANKS) { if (xp >= min) r = name; }
+  return r;
+}
+function awardXP(amount) {
+  gs.xp += amount;
+  saveGS();
+  updateHUD();
+  showToast('+' + amount + ' XP');
+}
+function showToast(msg) {
+  const t = document.getElementById('xp-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+function updateHUD() {
+  const xpEl = document.getElementById('gh-xp-val');
+  const fillEl = document.getElementById('gh-xp-fill');
+  const rankEl = document.getElementById('gh-rank');
+  const streakEl = document.getElementById('gh-streak');
+  if (xpEl) xpEl.textContent = gs.xp;
+  if (rankEl) rankEl.textContent = getRank(gs.xp);
+  if (streakEl) streakEl.textContent = '🔥 ' + gs.streak + ' streak';
+  // XP fill: progress within current rank tier
+  if (fillEl) {
+    let lo = 0, hi = 2500;
+    for (let i = 0; i < RANKS.length - 1; i++) {
+      if (gs.xp >= RANKS[i][0] && gs.xp < RANKS[i+1][0]) { lo = RANKS[i][0]; hi = RANKS[i+1][0]; break; }
+    }
+    const pct = Math.min(100, ((gs.xp - lo) / (hi - lo)) * 100);
+    fillEl.style.width = pct + '%';
+  }
+  const dd = document.getElementById('gh-daily-done');
+  if (dd) dd.style.display = gs.dailyDone && gs.dailyDate === todayStr() ? 'inline' : 'none';
+}
+function todayStr() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+// ── Question Bank (scraped from DOM) ────────────────────
+let QB = [];
+function buildQuestionBank() {
+  QB = [];
+  document.querySelectorAll('.unit-section').forEach((unit, ui) => {
+    const unitNum = 'Unit ' + (ui + 1);
+    const unitTitle = unit.querySelector('.unit-title')?.textContent?.trim() || '';
+    unit.querySelectorAll('.qcard').forEach((card, qi) => {
+      const qText = card.querySelector('.q-text')?.textContent?.trim();
+      const ansEl = card.querySelector('.ans-txt');
+      if (!qText || !ansEl) return;
+      // strip MCQ opts from answer text
+      const ansClone = ansEl.cloneNode(true);
+      ansClone.querySelectorAll('.mcq-opts').forEach(e => e.remove());
+      const ansText = ansClone.textContent?.trim();
+      if (!ansText || ansText.length < 3) return;
+      // level
+      const lvlTag = card.closest('.level-group')?.querySelector('.lvl-tag')?.textContent?.trim() || '1-2';
+      const lvlNum = parseInt(lvlTag[0]) || 1;
+      const id = 'u'+(ui+1)+'_q'+qi;
+      QB.push({ id, unitNum, unitTitle, qText, ansText, lvlTag, lvlNum });
+    });
+  });
+}
+
+function filteredQB(unitFilter, levelFilter) {
+  return QB.filter(q => {
+    const uOk = unitFilter.length === 0 || unitFilter.includes(q.unitNum);
+    const lOk = levelFilter.length === 0 || levelFilter.some(lf => {
+      if (lf === '1-2') return q.lvlNum <= 2;
+      if (lf === '3-4') return q.lvlNum === 3 || q.lvlNum === 4;
+      if (lf === '5-6') return q.lvlNum === 5 || q.lvlNum === 6;
+      if (lf === '7-8') return q.lvlNum >= 7;
+      return false;
+    });
+    return uOk && lOk;
+  });
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ── Modal ────────────────────────────────────────────────
+function openMode(mode) {
+  document.getElementById('game-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  const content = document.getElementById('gm-content');
+  if (mode === 'quiz') renderQuizSetup(content);
+  else if (mode === 'flashcard') renderFlashcardSetup(content);
+  else if (mode === 'speed') renderSpeedSetup(content);
+  else if (mode === 'daily') renderDaily(content);
+  else if (mode === 'weak') renderWeakSpots(content);
+  else if (mode === 'progress') renderProgress(content);
+}
+function closeModal() {
+  document.getElementById('game-modal').style.display = 'none';
+  document.body.style.overflow = '';
+  clearInterval(window._gameTimer);
+}
+
+// ── Filter UI helper ─────────────────────────────────────
+function filterUI(activeUnits, activeLevels, onChange) {
+  const units = ['Unit 1','Unit 2','Unit 3','Unit 4','Unit 5'];
+  const levels = ['1-2','3-4','5-6','7-8'];
+  let selUnits = [...activeUnits], selLevels = [...activeLevels];
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <div style="margin-bottom:6px;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em">Units</div>
+    <div class="gm-filter-row" id="fu-row">${units.map((u,i)=>`<button class="gm-filter-btn fu${i+1} ${selUnits.includes(u)?'active':''}" data-u="${u}">${u}</button>`).join('')}</div>
+    <div style="margin-bottom:6px;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em">Levels</div>
+    <div class="gm-filter-row" id="fl-row">${levels.map(l=>`<button class="gm-filter-btn fl${l.replace('-','')} ${selLevels.includes(l)?'active':''}" data-l="${l}">${l}</button>`).join('')}</div>
+  `;
+  el.querySelectorAll('[data-u]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const u = btn.dataset.u;
+      selUnits = selUnits.includes(u) ? selUnits.filter(x=>x!==u) : [...selUnits, u];
+      btn.classList.toggle('active');
+      onChange(selUnits, selLevels);
+    });
+  });
+  el.querySelectorAll('[data-l]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const l = btn.dataset.l;
+      selLevels = selLevels.includes(l) ? selLevels.filter(x=>x!==l) : [...selLevels, l];
+      btn.classList.toggle('active');
+      onChange(selUnits, selLevels);
+    });
+  });
+  return { el, getUnits: () => selUnits, getLevels: () => selLevels };
+}
+
+// ── TIMED QUIZ ───────────────────────────────────────────
+function renderQuizSetup(container) {
+  let selUnits = [], selLevels = [];
+  const { el: fEl, getUnits, getLevels } = filterUI([], [], (u,l) => { selUnits=u; selLevels=l; });
+  container.innerHTML = `
+    <div class="gm-head"><div class="gm-title">⚡ Timed Quiz</div><div class="gm-sub">Answer as many questions as you can. Reveal answer, then mark yourself.</div></div>
+    <div class="gm-body">
+      <div id="qsetup-filters"></div>
+      <div style="margin:1rem 0">
+        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Number of questions</div>
+        <div class="gm-filter-row">
+          <button class="gm-filter-btn active" id="qn-5" onclick="setQN(5)">5</button>
+          <button class="gm-filter-btn" id="qn-10" onclick="setQN(10)">10</button>
+          <button class="gm-filter-btn" id="qn-20" onclick="setQN(20)">20</button>
+          <button class="gm-filter-btn" id="qn-all" onclick="setQN(999)">All</button>
+        </div>
+      </div>
+      <div class="gm-btns"><button class="gm-btn gm-btn-primary" onclick="startQuiz()">Start Quiz →</button></div>
+    </div>
+  `;
+  container.querySelector('#qsetup-filters').appendChild(fEl);
+  window._quizN = 5;
+  window._quizUnits = getUnits;
+  window._quizLevels = getLevels;
+}
+window.setQN = function(n) {
+  window._quizN = n;
+  ['5','10','20','all'].forEach(v => {
+    const b = document.getElementById('qn-'+v);
+    if (b) b.classList.toggle('active', (v==='all' && n===999) || v===String(n));
+  });
+};
+window.startQuiz = function() {
+  const pool = shuffle(filteredQB(window._quizUnits?.() || [], window._quizLevels?.() || []));
+  const qs = pool.slice(0, window._quizN === 999 ? pool.length : window._quizN);
+  if (qs.length === 0) { alert('No questions match those filters!'); return; }
+  runQuiz(document.getElementById('gm-content'), qs, false);
+};
+
+function xpForLevel(lvl) {
+  if (lvl >= 7) return 30;
+  if (lvl >= 5) return 20;
+  if (lvl >= 3) return 10;
+  return 5;
+}
+
+function runQuiz(container, questions, speedMode) {
+  let idx = 0, score = 0, wrongQs = [], startTime = Date.now();
+  let timeLeft = speedMode ? 60 : null;
+  let answered = 0;
+  clearInterval(window._gameTimer);
+
+  function render() {
+    if (idx >= questions.length) { showResults(); return; }
+    const q = questions[idx];
+    const lvlClass = q.lvlNum <= 2 ? 'lt-12' : q.lvlNum <= 4 ? 'lt-34' : q.lvlNum <= 6 ? 'lt-56' : 'lt-78';
+    container.innerHTML = `
+      <div class="gm-head">
+        <div class="gq-meta">
+          <div class="gq-progress-wrap">
+            <div class="gq-progress-bar"><div class="gq-progress-fill" style="width:${(idx/questions.length)*100}%"></div></div>
+            <div class="gq-counter">${idx+1} / ${questions.length}${speedMode?'':''}</div>
+          </div>
+          ${speedMode ? `<div class="gq-timer" id="gq-timer">${timeLeft}s</div>` : ''}
+          ${gs.streak >= 3 ? `<div class="gq-streak-badge">🔥 ${gs.streak}</div>` : ''}
+          <div style="font-size:13px;font-weight:600">✅ ${score}</div>
+        </div>
+      </div>
+      <div class="gm-body">
+        <div class="gq-question">
+          <div class="gq-unit-tag">${q.unitNum} · ${q.unitTitle}</div>
+          <div style="margin-bottom:8px"><span class="gq-level-tag ${lvlClass}">${q.lvlTag}</span></div>
+          <div class="gq-text">${q.qText}</div>
+        </div>
+        <button class="gq-show-btn" id="gq-show-btn" onclick="revealAnswer()">Show Answer</button>
+        <div class="gq-answer-reveal" id="gq-reveal">
+          <div class="gq-answer-box">${q.ansText}</div>
+          <div class="gq-self-btns">
+            <button class="gq-self-btn gq-self-correct" onclick="markAnswer(true)">✓ Got it</button>
+            <button class="gq-self-btn gq-self-wrong" onclick="markAnswer(false)">✗ Missed it</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    if (speedMode && timeLeft !== null) {
+      clearInterval(window._gameTimer);
+      window._gameTimer = setInterval(() => {
+        timeLeft--;
+        const timerEl = document.getElementById('gq-timer');
+        if (timerEl) { timerEl.textContent = timeLeft + 's'; timerEl.classList.toggle('urgent', timeLeft <= 10); }
+        if (timeLeft <= 0) { clearInterval(window._gameTimer); showResults(); }
+      }, 1000);
+    }
+  }
+
+  window.revealAnswer = function() {
+    document.getElementById('gq-show-btn').style.display = 'none';
+    document.getElementById('gq-reveal').classList.add('show');
+  };
+
+  window.markAnswer = function(correct) {
+    const q = questions[idx];
+    answered++;
+    if (correct) {
+      score++;
+      gs.streak++;
+      const xp = xpForLevel(q.lvlNum) * (gs.streak >= 5 ? 2 : 1);
+      awardXP(xp);
+      delete gs.wrongIds[q.id];
+    } else {
+      gs.streak = 0;
+      gs.wrongIds[q.id] = (gs.wrongIds[q.id] || 0) + 1;
+      wrongQs.push(q);
+    }
+    // record in history
+    gs.history.push({ date: todayStr(), unit: q.unitNum, correct, level: q.lvlTag });
+    if (gs.history.length > 500) gs.history = gs.history.slice(-500);
+    saveGS();
+    updateHUD();
+    idx++;
+    render();
+  };
+
+  function showResults() {
+    clearInterval(window._gameTimer);
+    const elapsed = Math.round((Date.now() - startTime) / 1000);
+    const pct = answered > 0 ? Math.round((score / answered) * 100) : 0;
+    const emoji = pct >= 90 ? '🏆' : pct >= 70 ? '🎉' : pct >= 50 ? '👍' : '💪';
+    // unit breakdown
+    const unitScores = {};
+    questions.slice(0, answered).forEach((q, i) => {
+      if (!unitScores[q.unitNum]) unitScores[q.unitNum] = { correct: 0, total: 0 };
+      unitScores[q.unitNum].total++;
+    });
+    questions.slice(0, answered).forEach((q, i) => {});
+    // simpler: iterate answered questions
+    for (let i = 0; i < Math.min(answered, questions.length); i++) {
+      const q = questions[i];
+      if (!unitScores[q.unitNum]) unitScores[q.unitNum] = { correct: 0, total: 0 };
+    }
+    if (speedMode && score > gs.speedBest) { gs.speedBest = score; saveGS(); }
+    container.innerHTML = `
+      <div class="gm-head">
+        <div class="gm-title">${speedMode ? '⏱️ Speed Round' : '⚡ Quiz'} Complete!</div>
+      </div>
+      <div class="gm-body">
+        <div class="gm-results-score">
+          <div class="gm-score-big">${score}/${answered}</div>
+          <div class="gm-score-rank">${emoji}</div>
+          <div class="gm-score-label">${pct}% correct · ${elapsed}s · +${gs.xp} XP total</div>
+          ${speedMode && score >= gs.speedBest ? '<div style="color:#2e7a40;font-weight:600;font-size:13px;margin-top:4px">🏅 New personal best!</div>' : ''}
+        </div>
+        ${wrongQs.length > 0 ? `
+        <div class="gm-breakdown">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Missed questions</div>
+          <div class="gm-weak-list">${wrongQs.slice(0,5).map(q=>`<div class="gm-weak-item">${q.unitNum} · ${q.qText.slice(0,80)}${q.qText.length>80?'…':''}</div>`).join('')}</div>
+        </div>` : '<div style="color:#2e7a40;font-size:13px;margin-top:0.5rem">🎯 Perfect score!</div>'}
+        <div class="gm-btns">
+          <button class="gm-btn gm-btn-primary" onclick="${speedMode ? 'renderSpeedSetup' : 'renderQuizSetup'}(document.getElementById(\'gm-content\'))">Play Again</button>
+          <button class="gm-btn gm-btn-ghost" onclick="closeModal()">Done</button>
+        </div>
+      </div>
+    `;
+  }
+
+  render();
+}
+
+// ── SPEED ROUND ──────────────────────────────────────────
+function renderSpeedSetup(container) {
+  container.innerHTML = `
+    <div class="gm-head">
+      <div class="gm-title">⏱️ Speed Round</div>
+      <div class="gm-sub">60 seconds. Answer as many questions as possible. Personal best: <strong>${gs.speedBest}</strong></div>
+    </div>
+    <div class="gm-body">
+      <p style="font-size:13px;color:var(--text2);margin-bottom:1rem">All units, all levels. Reveal the answer and mark yourself. Clock runs continuously.</p>
+      <div class="gm-btns"><button class="gm-btn gm-btn-primary" onclick="startSpeed()">Start ⏱️</button></div>
+    </div>
+  `;
+}
+window.startSpeed = function() {
+  const qs = shuffle(QB);
+  if (qs.length === 0) return;
+  runQuiz(document.getElementById('gm-content'), qs, true);
+};
+
+// ── DAILY CHALLENGE ──────────────────────────────────────
+function renderDaily(container) {
+  const today = todayStr();
+  if (gs.dailyDone && gs.dailyDate === today) {
+    container.innerHTML = `
+      <div class="gm-head"><div class="gm-title">📅 Daily Challenge</div></div>
+      <div class="gm-body">
+        <div style="text-align:center;padding:2rem 0">
+          <div style="font-size:40px">✅</div>
+          <div style="font-size:16px;font-weight:600;margin-top:8px">Done for today!</div>
+          <div style="font-size:13px;color:var(--text2);margin-top:4px">Come back tomorrow for a new challenge.</div>
+          <div style="font-size:13px;font-weight:600;color:#2e7a40;margin-top:8px">🔥 Streak: ${gs.streak}</div>
+        </div>
+        <div class="gm-btns"><button class="gm-btn gm-btn-ghost" onclick="closeModal()">Close</button></div>
+      </div>
+    `;
+    return;
+  }
+  // seed daily questions from date
+  const seed = today.replace(/-/g,'');
+  const seeded = [...QB].sort((a,b) => ((parseInt(seed)*parseInt(a.id.replace(/\D/g,''),36)||0)%100) - ((parseInt(seed)*parseInt(b.id.replace(/\D/g,''),36)||0)%100));
+  const dailyQs = seeded.slice(0, 5);
+  container.innerHTML = `
+    <div class="gm-head"><div class="gm-title">📅 Daily Challenge</div><div class="gm-sub">5 questions · one attempt per day · bonus XP for completion</div></div>
+    <div class="gm-body">
+      <p style="font-size:13px;color:var(--text2);margin-bottom:1rem">Today: ${today}. Complete all 5 to earn a <strong>+50 bonus XP</strong>!</p>
+      <div class="gm-btns"><button class="gm-btn gm-btn-primary" onclick="startDaily()">Start Challenge →</button></div>
+    </div>
+  `;
+  window._dailyQs = dailyQs;
+}
+window.startDaily = function() {
+  const qs = window._dailyQs || [];
+  if (!qs.length) return;
+  // wrap runQuiz with daily completion hook
+  runQuiz(document.getElementById('gm-content'), qs, false);
+  // patch markAnswer to detect completion
+  const origMark = window.markAnswer;
+  let dCount = 0;
+  window.markAnswer = function(correct) {
+    dCount++;
+    origMark(correct);
+    if (dCount >= qs.length) {
+      gs.dailyDone = true;
+      gs.dailyDate = todayStr();
+      saveGS();
+      awardXP(50); // bonus
+      updateHUD();
+    }
+  };
+};
+
+// ── WEAK SPOTS ───────────────────────────────────────────
+function renderWeakSpots(container) {
+  const weakIds = Object.keys(gs.wrongIds).filter(id => gs.wrongIds[id] > 0);
+  const weakQs = QB.filter(q => weakIds.includes(q.id));
+  if (weakQs.length === 0) {
+    container.innerHTML = `
+      <div class="gm-head"><div class="gm-title">🎯 Weak Spots</div></div>
+      <div class="gm-body">
+        <div style="text-align:center;padding:2rem 0">
+          <div style="font-size:40px">🎯</div>
+          <div style="font-size:15px;font-weight:600;margin-top:8px">No weak spots yet!</div>
+          <div style="font-size:13px;color:var(--text2);margin-top:4px">Complete some quizzes and questions you miss will appear here.</div>
+        </div>
+        <div class="gm-btns"><button class="gm-btn gm-btn-primary" onclick="openMode('quiz')">Go to Quiz →</button></div>
+      </div>
+    `;
+    return;
+  }
+  const sorted = weakQs.sort((a,b) => (gs.wrongIds[b.id]||0) - (gs.wrongIds[a.id]||0));
+  container.innerHTML = `
+    <div class="gm-head">
+      <div class="gm-title">🎯 Weak Spots</div>
+      <div class="gm-sub">${sorted.length} question${sorted.length>1?'s':''} you've struggled with</div>
+    </div>
+    <div class="gm-body">
+      <div style="margin-bottom:1rem">
+        ${sorted.slice(0,8).map(q=>`
+          <div style="padding:8px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;display:flex;align-items:flex-start;gap:10px">
+            <span style="background:#fdf2ee;border:1px solid var(--u1-border);color:var(--u1);border-radius:99px;font-size:10px;font-weight:700;padding:2px 7px;white-space:nowrap;flex-shrink:0">✗ ${gs.wrongIds[q.id]||0}x</span>
+            <div>
+              <div style="font-size:11px;color:var(--text3)">${q.unitNum}</div>
+              <div style="font-size:13px;color:var(--text)">${q.qText.slice(0,90)}${q.qText.length>90?'…':''}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="gm-btns">
+        <button class="gm-btn gm-btn-primary" onclick="practiceWeak()">Practice Weak Spots →</button>
+        <button class="gm-btn gm-btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  `;
+  window._weakQs = sorted;
+}
+window.practiceWeak = function() {
+  const qs = shuffle(window._weakQs || []).slice(0, 10);
+  if (!qs.length) return;
+  runQuiz(document.getElementById('gm-content'), qs, false);
+};
+
+// ── FLASHCARDS ───────────────────────────────────────────
+function renderFlashcardSetup(container) {
+  let selUnits = [], selLevels = [];
+  const { el: fEl, getUnits, getLevels } = filterUI([], [], () => {});
+  container.innerHTML = `
+    <div class="gm-head"><div class="gm-title">🃏 Flashcards</div><div class="gm-sub">Click the card to flip it. Mark each as known or still learning.</div></div>
+    <div class="gm-body">
+      <div id="fc-filters"></div>
+      <div class="gm-btns" style="margin-top:1rem"><button class="gm-btn gm-btn-primary" onclick="startFlashcards()">Start →</button></div>
+    </div>
+  `;
+  container.querySelector('#fc-filters').appendChild(fEl);
+  window._fcGetUnits = getUnits;
+  window._fcGetLevels = getLevels;
+}
+window.startFlashcards = function() {
+  const pool = shuffle(filteredQB(window._fcGetUnits?.() || [], window._fcGetLevels?.() || []));
+  if (!pool.length) { alert('No questions match!'); return; }
+  let idx = 0, known = 0, learning = 0;
+  const container = document.getElementById('gm-content');
+
+  function render() {
+    if (idx >= pool.length) {
+      container.innerHTML = `
+        <div class="gm-head"><div class="gm-title">🃏 Flashcards Done!</div></div>
+        <div class="gm-body">
+          <div style="text-align:center;padding:1.5rem 0">
+            <div style="font-size:40px">🃏</div>
+            <div style="font-size:22px;font-weight:700;margin:8px 0">${known} / ${pool.length}</div>
+            <div style="font-size:13px;color:var(--text2)">Known · ${learning} still learning</div>
+          </div>
+          <div class="gm-btns">
+            <button class="gm-btn gm-btn-primary" onclick="renderFlashcardSetup(document.getElementById('gm-content'))">Again</button>
+            <button class="gm-btn gm-btn-ghost" onclick="closeModal()">Done</button>
+          </div>
+        </div>
+      `;
+      awardXP(known * 3);
+      return;
+    }
+    const q = pool[idx];
+    container.innerHTML = `
+      <div class="gm-head">
+        <div class="gq-meta">
+          <div class="gq-progress-wrap">
+            <div class="gq-progress-bar"><div class="gq-progress-fill" style="width:${(idx/pool.length)*100}%"></div></div>
+            <div class="gq-counter">${idx+1} / ${pool.length} · ✅ ${known} known</div>
+          </div>
+        </div>
+      </div>
+      <div class="gm-body">
+        <div class="fc-hint">Click the card to flip it</div>
+        <div class="fc-card-wrap" onclick="flipCard()">
+          <div class="fc-card" id="fc-card">
+            <div class="fc-face fc-front">
+              <div class="fc-face-label">${q.unitNum}</div>
+              <div class="fc-face-text">${q.qText}</div>
+            </div>
+            <div class="fc-face fc-back">
+              <div class="fc-face-label">Answer</div>
+              <div class="fc-face-ans">${q.ansText.slice(0,200)}${q.ansText.length>200?'…':''}</div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-self-btns">
+          <button class="fc-self-btn fc-unknown" onclick="fcMark(false)">Still learning</button>
+          <button class="fc-self-btn fc-known" onclick="fcMark(true)">Known ✓</button>
+        </div>
+        <div class="fc-nav">
+          <button class="fc-nav-btn" onclick="fcSkip(-1)" ${idx===0?'disabled':''}>← Prev</button>
+          <span class="fc-counter">${idx+1} / ${pool.length}</span>
+          <button class="fc-nav-btn" onclick="fcSkip(1)">Next →</button>
+        </div>
+      </div>
+    `;
+  }
+
+  window.flipCard = () => document.getElementById('fc-card')?.classList.toggle('flipped');
+  window.fcMark = (isKnown) => {
+    if (isKnown) { known++; awardXP(3); }
+    else learning++;
+    idx++;
+    render();
+  };
+  window.fcSkip = (dir) => { idx = Math.max(0, Math.min(pool.length-1, idx+dir)); render(); };
+  render();
+};
+
+// ── PROGRESS ─────────────────────────────────────────────
+function renderProgress(container) {
+  // stats from history
+  const hist = gs.history || [];
+  const totalAnswered = hist.length;
+  const totalCorrect = hist.filter(h => h.correct).length;
+  const pct = totalAnswered ? Math.round((totalCorrect/totalAnswered)*100) : 0;
+
+  // per-unit accuracy
+  const unitStats = {};
+  for (let i=1;i<=5;i++) unitStats['Unit '+i] = { c:0, t:0 };
+  hist.forEach(h => { if (unitStats[h.unit]) { unitStats[h.unit].t++; if(h.correct) unitStats[h.unit].c++; } });
+
+  // subtopics from DOM
+  const topics = [];
+  document.querySelectorAll('.unit-section').forEach((unit, ui) => {
+    const unitNum = 'Unit ' + (ui+1);
+    unit.querySelectorAll('.subtopic').forEach((st, si) => {
+      const name = st.querySelector('.st-name')?.textContent?.trim();
+      if (name) topics.push({ id: `u${ui+1}_st${si}`, unitNum, name });
+    });
+  });
+
+  container.innerHTML = `
+    <div class="gm-head"><div class="gm-title">📊 Your Progress</div></div>
+    <div class="gm-body">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-val">${gs.xp}</div><div class="stat-lbl">Total XP</div></div>
+        <div class="stat-card"><div class="stat-val">${totalAnswered}</div><div class="stat-lbl">Answered</div></div>
+        <div class="stat-card"><div class="stat-val">${pct}%</div><div class="stat-lbl">Accuracy</div></div>
+        <div class="stat-card"><div class="stat-val">${gs.streak}</div><div class="stat-lbl">Streak</div></div>
+        <div class="stat-card"><div class="stat-val">${gs.speedBest}</div><div class="stat-lbl">Speed Best</div></div>
+        <div class="stat-card"><div class="stat-val">${Object.keys(gs.wrongIds).length}</div><div class="stat-lbl">Weak Spots</div></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 8px">Accuracy by Unit</div>
+      ${Object.entries(unitStats).map(([u,s]) => {
+        const p = s.t ? Math.round((s.c/s.t)*100) : 0;
+        const color = p >= 80 ? '#2e7a40' : p >= 60 ? '#8a5e00' : '#b84d2a';
+        return `<div class="weak-unit-bar">
+          <div class="weak-unit-name">${u}</div>
+          <div class="weak-bar-wrap"><div class="weak-bar-fill" style="width:${p}%;background:${color}"></div></div>
+          <div class="weak-pct">${s.t ? p+'%' : '—'}</div>
+        </div>`;
+      }).join('')}
+
+      <div style="font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 8px">Subtopic Checklist</div>
+      <div id="pt-topics-wrap"></div>
+
+      <div style="font-size:12px;color:var(--text3);margin-top:1rem">
+        Rank: <strong>${getRank(gs.xp)}</strong>
+      </div>
+      <div class="gm-btns" style="margin-top:1rem">
+        <button class="gm-btn gm-btn-ghost" onclick="if(confirm('Reset all progress?')){resetAll()}">Reset All</button>
+        <button class="gm-btn gm-btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  `;
+
+  // render subtopic checklist
+  const wrap = container.querySelector('#pt-topics-wrap');
+  const unitGroups = {};
+  topics.forEach(t => { if(!unitGroups[t.unitNum]) unitGroups[t.unitNum]==[]; (unitGroups[t.unitNum]=unitGroups[t.unitNum]||[]).push(t); });
+  Object.entries(unitGroups).forEach(([uName, uts]) => {
+    const done = uts.filter(t => gs.progress[t.id]).length;
+    const ui = parseInt(uName.replace('Unit ',''));
+    const colors = ['#b84d2a','#2558a0','#2e7a40','#6230a8','#8a5e00'];
+    const col = colors[ui-1] || '#555';
+    const div = document.createElement('div');
+    div.className = 'pt-unit';
+    div.innerHTML = `
+      <div class="pt-unit-title">
+        <span>${uName}</span>
+        <span style="font-size:11px;color:var(--text3)">${done}/${uts.length}</span>
+      </div>
+      <div class="pt-unit-bar"><div class="pt-unit-fill" style="width:${(done/uts.length)*100}%;background:${col}"></div></div>
+      <div class="pt-topics">
+        ${uts.map(t => `
+          <div class="pt-topic ${gs.progress[t.id]?'done':''}" id="ptt-${t.id}" onclick="toggleTopic('${t.id}')">
+            <div class="pt-check">${gs.progress[t.id]?'✓':''}</div>
+            <div class="pt-topic-name">${t.name}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    wrap.appendChild(div);
+  });
+}
+
+window.toggleTopic = function(id) {
+  gs.progress[id] = !gs.progress[id];
+  saveGS();
+  const el = document.getElementById('ptt-'+id);
+  if (el) {
+    el.classList.toggle('done', !!gs.progress[id]);
+    el.querySelector('.pt-check').textContent = gs.progress[id] ? '✓' : '';
+  }
+};
+
+window.resetAll = function() {
+  gs = { xp: 0, streak: 0, wrongIds: {}, history: [], dailyDate: '', dailyDone: false, progress: {}, speedBest: 0 };
+  saveGS();
+  updateHUD();
+  closeModal();
+};
+
+// ── INIT ─────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildQuestionBank();
+  updateHUD();
+  // close modal on backdrop click
+  document.getElementById('game-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+});
+
+</script>
+</body>
+</html>
